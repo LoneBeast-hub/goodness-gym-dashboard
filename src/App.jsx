@@ -1,7 +1,9 @@
+import Layout from "./components/layout/layout.component"
+
 function App() {
   return (
     <>
-      <p className="text-3xl">Goodness Gym dashboard</p>
+      <Layout />
     </>
   )
 }

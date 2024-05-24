@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('./assets/Satoshi-Variable.ttf') format('truetype');
+}
+
+* {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    line-height: 100%;
+    font-family: 'MyFont', sans-serif;
+}
