@@ -62,7 +62,7 @@ const ActivitiesAreaChart = () => {
 
     return(
         <div className='pt-[1.7rem] w-full border-[0.5px] border-gray-e5 md:max-w-[68%] pr-[0.9rem] pl-[1.2rem] pb-[1.3rem]'>
-            <p className='text-[1.8rem] font-medium mb-[1.1rem] text-black-100'>Activities</p>
+            <p className='text-[1.6rem] lg:text-[1.8rem] font-medium mb-[1.1rem] text-black-100'>Activities</p>
             <div className='w-full'>
                 <Line className='w-full h-full max-h-[198px]' options={options} data={areaChartData} />
             </div>

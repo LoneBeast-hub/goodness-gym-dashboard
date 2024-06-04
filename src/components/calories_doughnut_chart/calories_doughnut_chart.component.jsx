@@ -38,7 +38,7 @@ const CaloriesDoughnutChart = () => {
 
     return(
         <div className="pt-[1.7rem] w-full md:max-w-[32%] border-[0.5px] border-gray-e5 pr-[0.9rem] pl-[1.2rem] pb-[1.3rem]">
-            <p className='text-[1.8rem] font-medium mb-[1.1rem] text-black-100'>Calories</p>
+            <p className='text-[1.6rem] lg:text-[1.8rem] font-medium mb-[1.1rem] text-black-100'>Calories</p>
             {/* Doughnut chart */}
             <div className="flex w-full h-[160px] items-center justify-center relative">
                 <p className='text-center'>
@@ -58,14 +58,14 @@ const CaloriesDoughnutChart = () => {
                     {/* indicator */}
                     <div className='w-[11px] h-[11px] rounded-full bg-pending'></div>
                     {/* Percentage and name */}
-                    <p className='text-black-100 text-[1.2rem]'><span className='text-[1.2rem]'>50</span>% Carbohydrate</p>
+                    <p className='text-black-100 text-[1.2rem]'><span className='text-[1.2rem]'>50</span>% Carb.</p>
                 </div>
                 {/* Protein */}
                 <div className='flex gap-[0.5rem]'>
                     {/* indicator */}
                     <div className='w-[11px] h-[11px] rounded-full bg-green-100'></div>
                     {/* Percentage and name */}
-                    <p className='text-black-100 text-[1.2rem]'><span className='text-[1.2rem]'>30</span>% Protein</p>
+                    <p className='text-black-100 text-[1.2rem]'><span className='text-[1.2rem]'>30</span>% Pro.</p>
                 </div>
                 {/* Fat */}
                 <div className='flex gap-[0.5rem]'>
