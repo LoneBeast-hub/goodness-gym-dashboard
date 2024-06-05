@@ -20,6 +20,7 @@ import SettingsPage from "../../pages/settings/settings.page";
 // use context
 import { useContext } from "react";
 import { MyContext } from "../../App";
+import EditProfile from "../../pages/edit_profile/edit_profile.page";
 
 const Layout = () => {
     const {contextState, setContextState} = useContext(MyContext);
@@ -67,8 +68,9 @@ const Layout = () => {
                     <Route path="/" exact element={<DashboardPage />} />
                     <Route path="/to_do" element={<ToDoPage />} />
                     <Route path="/class_schedule" element={<ClassSchedulePage />} />
-                    <Route path="/anouncement" element={<AnnouncementPage />} />
+                    <Route path="/announcement" element={<AnnouncementPage />} />
                     <Route path="/settings" element={<SettingsPage />} />
+                    <Route path="/settings/edit_profile" element={<EditProfile />} />
                 </Routes>
             </div>
         </div>
