@@ -4,6 +4,7 @@ import Header from "../../components/header/header.component";
 import ProfileImg from '../../assets/profile.png';
 // react icons
 import { FaCamera } from "react-icons/fa";
+import CustomButton from "../../components/custom_button/custom_button.component";
 
 const EditProfile = () => {
     return(
@@ -28,16 +29,38 @@ const EditProfile = () => {
                     <form className="mt-[14px] md:mt[17px]" action="#">
                         {/* flex */}
                         <div className="flex flex-col gap-[2rem] md:flex-row">
-                            {/* input */}
+                            {/* Full Name input */}
                             <div className="flex w-full md:w-[50%] flex-col md:gap-[1.5rem] gap-[0.5rem]">
                                 <label htmlFor="full_name" className="text-[1.4rem] md:text-[2rem] text-black-100">Full Name</label>
                                 <input className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="text" name="full_name" id="full_name" placeholder="John Doe" />
                             </div>
-                            {/* input */}
+                            {/* Email input */}
                             <div className="flex w-full md:w-[50%] flex-col md:gap-[1.5rem] gap-[0.5rem]">
                                 <label htmlFor="email" className="text-[1.4rem] md:text-[2rem] text-black-100">Email</label>
                                 <input className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="email" name="email" id="email" placeholder="example@gmail.com" />
                             </div>
+                        </div>
+                        {/* flex */}
+                        <div className="flex flex-col mt-[2rem] gap-[2rem] md:flex-row">
+                            {/* Username input */}
+                            <div className="flex w-full md:w-[50%] flex-col md:gap-[1.5rem] gap-[0.5rem]">
+                                <label htmlFor="username" className="text-[1.4rem] md:text-[2rem] text-black-100">Username</label>
+                                <input className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="text" name="username" id="username" placeholder="Doe" />
+                            </div>
+                            {/* Phone Number input */}
+                            <div className="flex w-full md:w-[50%] flex-col md:gap-[1.5rem] gap-[0.5rem]">
+                                <label htmlFor="phone_number" className="text-[1.4rem] md:text-[2rem] text-black-100">Phone Number</label>
+                                <input className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="number" name="phone_number" id="phone_number" placeholder="0123456789" />
+                            </div>
+                        </div>
+                        {/* Tier input */}
+                        <div className="flex mt-[2rem] w-full flex-col md:gap-[1.5rem] gap-[0.5rem]">
+                            <label htmlFor="tier" className="text-[1.4rem] md:text-[2rem] text-black-100">Tier</label>
+                            <input className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="number" name="tier" id="tier" placeholder="Intermediate" />
+                        </div>
+                        {/* Update button - I have issues with how this is being displayed here fix when coding */}
+                        <div className="w-full flex mt-[2rem] md:justify-end">
+                            <CustomButton AddClassName='text-[1.6rem] w-full md:w-fit py-[1.5rem] md:py-[2.5rem] md:px-[7.2rem] md:text-[2.4rem]' primaryColored>Update</CustomButton>
                         </div>
                     </form>
                 </div>
