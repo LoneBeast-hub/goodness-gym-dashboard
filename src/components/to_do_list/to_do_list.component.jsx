@@ -2,6 +2,9 @@
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { HiOutlineTrash } from "react-icons/hi2";
+// use context
+import { useContext } from "react";
+import { MyContext } from "../../App";
 
 const toDoListData = [
     {
@@ -25,6 +28,13 @@ const toDoListData = [
 ]
 
 const ToDoList = () => {
+    const {contextState, setContextState} = useContext(MyContext);
+    const handleDeleteTodo = () => {
+        setContextState((prevValues) => ({
+            ...prevValues,
+            showTodoDeleteModal: true
+        }))
+    }
     return(
         <div className="mt-[2.4rem]">
             <div className="flex w-[90%] mx-auto mb-[1.9rem] items-center justify-between">
@@ -65,8 +75,8 @@ const ToDoList = () => {
                                         </td>
                                         <td className="text-black-100 py-[2.8rem] pr-[5rem]">
                                             <div className="flex items-center gap-[1rem] justify-end">
-                                                <FiEdit className="text-[2.2rem]" />
-                                                <HiOutlineTrash className="text-[2.3rem] text-red-100" />
+                                                <FiEdit className="text-[2.2rem] cursor-pointer" />
+                                                <HiOutlineTrash onClick={handleDeleteTodo} className="text-[2.3rem] text-red-100 cursor-pointer" />
                                             </div>
                                         </td>
                                     </tr>
@@ -101,8 +111,8 @@ const ToDoList = () => {
                                     </div>
                                     <div className="text-black-100">
                                         <div className="flex items-center gap-[0.05rem] justify-end">
-                                            <FiEdit className="text-[1.2rem]" />
-                                            <HiOutlineTrash className="text-[1.3rem] text-red-100" />
+                                            <FiEdit className="text-[1.2rem] cursor-pointer" />
+                                            <HiOutlineTrash onClick={handleDeleteTodo} className="text-[1.3rem] text-red-100 cursor-pointer" />
                                         </div>
                                     </div>
                                 </div>

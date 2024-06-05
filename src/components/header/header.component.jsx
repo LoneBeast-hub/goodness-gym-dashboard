@@ -4,20 +4,39 @@ import ProfileImg from '../../assets/profile.png'
 // react icons
 import { IoNotificationsSharp } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FaTimes } from "react-icons/fa";
+// use context
+import { useContext } from 'react';
+import { MyContext } from '../../App';
 
 const Header = ({pageName, routeTo}) => {
+    const {contextState, setContextState} = useContext(MyContext);
     return(
-        <div className="flex items-center justify-between pt-[2.7rem] w-[90%] mx-auto pb-[0.9rem]">
+        <div className="flex items-center z-0 relative justify-between pt-[2.7rem] w-[90%] mx-auto pb-[0.9rem]">
             {/* Page name */}
             <div className='flex gap-[1rem]'>
-                <GiHamburgerMenu className='text-[2.4rem] block lg:hidden text-primary-100' />
+                <button
+                 className={`absolute transition-all ${contextState.showNav? 'left-[263px]' : 'left-0'} block lg:hidden text-primary-100`} 
+                 onClick={() => {
+                    setContextState((prevValues) => ({
+                        ...prevValues,
+                        showNav: !contextState.showNav
+                    }))
+                 }} 
+                >
+                    {contextState.showNav ? <FaTimes className="text-[2.4rem] fixed" /> : <GiHamburgerMenu className="text-[2.4rem]" />}
+                </button>
+                {/* hamburger frame */}
+                <GiHamburgerMenu
+                 className={`text-[2.4rem] z-10 transition-all ${contextState.showNav? 'w-0' : 'w-fit'} invisible block lg:hidden text-primary-100`}
+                />
                 <p className="gap-1 font-medium self-center">
                     <span className="text-black-100 text-[1.4rem] lg:text-[2rem]">Home</span>
                     <Link to={routeTo} className="text-primary-100 text-[1.4rem] lg:text-[2rem]"> &gt; {pageName}</Link>
                 </p>
             </div>
             {/* profile picture and notification */}
-            <div className="flex items-center gap-[0.5rem] lg:gap-[2rem]">
+            <div className="flex items-center relative z-[-1] gap-[0.5rem] lg:gap-[2rem]">
                 <div className="bg-primary-light lg:bg-gray-fa flex items-center justify-center w-[2.8rem] h-[2.8rem] lg:w-[4.1rem] lg:h-[4.1rem] relative rounded-full">
                     <IoNotificationsSharp className="text-[1.68rem] text-center lg:text-[2.47rem] text-primary-100" />
                     <div className="absolute w-[0.558rem] h-[0.558rem] lg:h-[0.82rem] lg:w-[0.82rem] bg-red-100 rounded-full top-0 right-0"></div>

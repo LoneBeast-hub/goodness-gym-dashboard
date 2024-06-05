@@ -17,12 +17,16 @@ import './layout.styles.css';
 import ClassSchedulePage from "../../pages/class_schedule/class_schedule.page";
 import AnnouncementPage from "../../pages/announcement/announcement.page";
 import SettingsPage from "../../pages/settings/settings.page";
+// use context
+import { useContext } from "react";
+import { MyContext } from "../../App";
 
 const Layout = () => {
+    const {contextState, setContextState} = useContext(MyContext);
     return(
         <div className="flex w-full">
             {/* desktop sidebar */}
-            <div className="min-w-[263px] bg-white box-border border-r-[1px] border-r-gray-e5 fixed left-0 top-0 px-[2.45rem] pt-[3.6rem] gap-[3.6rem] flex-col min-h-[100vh] hidden lg:flex">
+            <div className={`min-w-[263px] z-10 bg-white box-border border-r-[1px] border-r-gray-e5 fixed transition-all ${contextState.showNav? 'left-[0]' : 'left-[-100%]'} lg:left-0 top-0 px-[2.45rem] pt-[3.6rem] gap-[3.6rem] flex-col min-h-[100vh] flex`}>
                 {/* logo */}
                 <img src={Logo} className="max-w-[160px] mx-auto max-h-[82px]" alt="Goodness Gym Fitness Center Logo" />
                 {/* routes container */}
