@@ -10,7 +10,6 @@ function App() {
   const [contextState, setContextState] = useState({
     showTodoDeleteModal: false,
     showNav: false,
-    showTodoDeleteModal: false
   })
   return (
     <MyContext.Provider value={{contextState, setContextState}}>

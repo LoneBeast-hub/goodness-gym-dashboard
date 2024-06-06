@@ -23,8 +23,8 @@ const TodoDeleteModal = () => {
                             ...prevValues,
                             showTodoDeleteModal: false
                         }))
-                    }} AddClassName='text-[1.6rem] w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' grayColored>No</CustomButton>
-                    <CustomButton AddClassName='text-[1.6rem] w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' redColored>Delete</CustomButton>
+                    }} AddClassName='w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' grayColored><span className="text-[1.6rem] md:text-[2rem]">No</span></CustomButton>
+                    <CustomButton AddClassName='w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' redColored><span className="text-[1.6rem] md:text-[2rem]">Delete</span></CustomButton>
                 </div>
                 {/* cancel */}
                 <div onClick={() => {
