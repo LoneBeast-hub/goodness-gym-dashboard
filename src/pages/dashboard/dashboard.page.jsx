@@ -4,6 +4,7 @@ import Header from "../../components/header/header.component";
 import { BsFire } from "react-icons/bs";
 import { FaHeartbeat } from "react-icons/fa";
 import { IoBag } from "react-icons/io5";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import ToDoList from "../../components/to_do_list/to_do_list.component";
 import ChartsContainer from "../../components/charts_container/charts_container.component";
 
@@ -56,7 +57,15 @@ const DashboardPage = () => {
                 <ChartsContainer />
             </div>
             {/* To do List body (contd) */}
-            <ToDoList />
+            <div className="flex w-[90%] mx-auto mb-[1.9rem] mt-[2.4rem] items-center justify-between">
+                {/* heading */}
+                <p className="text-primary-100 text-[1.6rem] lg:text-[2.4rem] font-bold">To-do List</p>
+                {/* see all */}
+                <p className="text-black-100 flex items-center cursor-pointer"><span className="text-[1.2rem] lg:text-[2rem]">See all</span> <MdOutlineKeyboardArrowRight className="text-[1.2rem] lg:text-[3rem]" /> </p>
+            </div>
+            <div className="w-[90%] mx-auto">
+                <ToDoList showCount={3} />
+            </div>
         </div>
     )
 }

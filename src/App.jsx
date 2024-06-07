@@ -32,13 +32,13 @@ function App() {
       {
         id: 4,
         description: 'Yoga',
-        progress: 100,
+        progress: 10,
         due_date: '04/03/23 - 10pm'
       },
       {
         id: 5,
         description: 'Yoga',
-        progress: 100,
+        progress: 50,
         due_date: '04/03/23 - 10pm'
       },
       {
