@@ -10,6 +10,44 @@ function App() {
   const [contextState, setContextState] = useState({
     showTodoDeleteModal: false,
     showNav: false,
+    toDoListData: [
+      {
+        id: 1,
+        description: 'Yoga',
+        progress: 50,
+        due_date: '04/03/23 - 10pm'
+      },
+      {
+        id: 2,
+        description: 'Yoga',
+        progress: 10,
+        due_date: '04/03/23 - 10pm'
+      },
+      {
+        id: 3,
+        description: 'Yoga',
+        progress: 100,
+        due_date: '04/03/23 - 10pm'
+      },
+      {
+        id: 4,
+        description: 'Yoga',
+        progress: 100,
+        due_date: '04/03/23 - 10pm'
+      },
+      {
+        id: 5,
+        description: 'Yoga',
+        progress: 100,
+        due_date: '04/03/23 - 10pm'
+      },
+      {
+        id: 6,
+        description: 'Yoga',
+        progress: 100,
+        due_date: '04/03/23 - 10pm'
+      }
+    ]
   })
   return (
     <MyContext.Provider value={{contextState, setContextState}}>
