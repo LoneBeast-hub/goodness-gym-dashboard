@@ -6,29 +6,10 @@ import { HiOutlineTrash } from "react-icons/hi2";
 import { useContext } from "react";
 import { MyContext } from "../../App";
 
-const toDoListData = [
-    {
-        id: 1,
-        description: 'Yoga',
-        progress: 50,
-        due_date: '04/03/23 - 10pm'
-    },
-    {
-        id: 2,
-        description: 'Yoga',
-        progress: 10,
-        due_date: '04/03/23 - 10pm'
-    },
-    {
-        id: 3,
-        description: 'Yoga',
-        progress: 100,
-        due_date: '04/03/23 - 10pm'
-    }
-]
-
 const ToDoList = () => {
     const {contextState, setContextState} = useContext(MyContext);
+    // filtered to do list
+    contextState
     const handleDeleteTodo = () => {
         setContextState((prevValues) => ({
             ...prevValues,
@@ -56,7 +37,7 @@ const ToDoList = () => {
                     </thead>
                     <tbody>
                         {
-                            toDoListData.map((toDo, index) => {
+                            contextState.toDoListData.slice(0, 3).map((toDo, index) => {
                                 return(
                                     <tr className="border-b-[0.5px] border-gray-e5" key={index}>
                                         <td className="text-[2rem] text-black-100 py-[2.8rem] pl-[5rem]">{toDo.description}</td>
@@ -89,7 +70,7 @@ const ToDoList = () => {
             {/* to-do table (mobile) */}
             <div className="block w-full table-auto md:hidden">
                 {
-                    toDoListData.map((toDo, index) => {
+                    contextState.toDoListData.slice(0, 3).map((toDo, index) => {
                         return(
                             <div className="border-t-[0.5px] px-[5%] items-center justify-between flex py-[1.9rem] w-full border-gray-f2" key={index}>
                                 {/* left side */}
