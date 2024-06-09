@@ -33,7 +33,7 @@ const TodoDeleteModal = () => {
                         showTodoDeleteModal: false
                     }))
                 }} className="cursor-pointer w-[31px] h-[31px] md:w-[65px] md:h-[65px] absolute right-[1.9rem] top-[1.9rem] justify-center rounded-full flex items-center bg-gray-f2">
-                    <LiaTimesSolid className="text-[1rem] md:text-[1.9rem] text-black-100" />
+                    <LiaTimesSolid className="text-[1.5rem] md:text-[2.3rem] text-black-100" />
                 </div>
             </div>
         </div>

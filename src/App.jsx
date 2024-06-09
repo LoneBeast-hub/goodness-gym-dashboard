@@ -3,12 +3,14 @@ import Layout from "./components/layout/layout.component"
 // react
 import { createContext, useState } from "react";
 import TodoDeleteModal from "./components/todo_delete_modal/todo_delete_modal.component";
+import TodoAddModal from "./components/todo_add_modal/todo_add_modal.component";
 
 export const MyContext = createContext();
 
 function App() {
   const [contextState, setContextState] = useState({
     showTodoDeleteModal: false,
+    showTodoAddModal: false,
     showNav: false,
     toDoListData: [
       {
@@ -54,6 +56,8 @@ function App() {
       <Layout />
       {/* todo delete modal */}
       {contextState.showTodoDeleteModal? <TodoDeleteModal /> : ''}
+      {/* todo add modal */}
+      {contextState.showTodoAddModal? <TodoAddModal /> : ''}
     </MyContext.Provider>
   )
 }

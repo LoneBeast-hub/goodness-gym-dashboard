@@ -23,7 +23,7 @@ import { MyContext } from "../../App";
 import EditProfile from "../../pages/edit_profile/edit_profile.page";
 
 const Layout = () => {
-    const {contextState, setContextState} = useContext(MyContext);
+    const {contextState} = useContext(MyContext);
     return(
         <div className="flex w-full">
             {/* desktop sidebar */}
