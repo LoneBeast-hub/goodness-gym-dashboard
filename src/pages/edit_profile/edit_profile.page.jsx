@@ -33,12 +33,12 @@ const EditProfile = () => {
                             {/* Full Name input */}
                             <div className="flex w-full md:w-[50%] flex-col md:gap-[1.5rem] gap-[0.5rem]">
                                 <label htmlFor="full_name" className="text-[1.4rem] md:text-[2rem] text-black-100">Full Name</label>
-                                <input className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="text" name="full_name" id="full_name" placeholder="John Doe" />
+                                <input required className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="text" name="full_name" id="full_name" placeholder="John Doe" />
                             </div>
                             {/* Email input */}
                             <div className="flex w-full md:w-[50%] flex-col md:gap-[1.5rem] gap-[0.5rem]">
                                 <label htmlFor="email" className="text-[1.4rem] md:text-[2rem] text-black-100">Email</label>
-                                <input className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="email" name="email" id="email" placeholder="example@gmail.com" />
+                                <input required className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="email" name="email" id="email" placeholder="example@gmail.com" />
                             </div>
                         </div>
                         {/* flex */}
@@ -46,12 +46,12 @@ const EditProfile = () => {
                             {/* Username input */}
                             <div className="flex w-full md:w-[50%] flex-col md:gap-[1.5rem] gap-[0.5rem]">
                                 <label htmlFor="username" className="text-[1.4rem] md:text-[2rem] text-black-100">Username</label>
-                                <input className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="text" name="username" id="username" placeholder="Doe" />
+                                <input required className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="text" name="username" id="username" placeholder="Doe" />
                             </div>
                             {/* Phone Number input */}
                             <div className="flex w-full md:w-[50%] flex-col md:gap-[1.5rem] gap-[0.5rem]">
                                 <label htmlFor="phone_number" className="text-[1.4rem] md:text-[2rem] text-black-100">Phone Number</label>
-                                <input className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="number" name="phone_number" id="phone_number" placeholder="0123456789" />
+                                <input required className="border border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="number" name="phone_number" id="phone_number" placeholder="0123456789" />
                             </div>
                         </div>
                         {/* Tier input */}

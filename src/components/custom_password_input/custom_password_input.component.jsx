@@ -14,7 +14,7 @@ const CustomPasswordInput = ({inputName, inputLabel, baseWidth}) => {
         <div className={`flex w-full ${baseWidth === 'full'? '' : 'md:w-[50%]'} flex-col md:gap-[1.5rem] gap-[0.5rem]`}>
             <label htmlFor={inputName} className="text-[1.4rem] md:text-[2rem] text-black-100">{inputLabel}</label>
             <div className="relative w-full">
-                <input className="border w-full border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type={showPassword ? 'text' : 'password'} name={inputName} id={inputName} />
+                <input required className="border w-full border-gray-e5 text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type={showPassword ? 'text' : 'password'} name={inputName} id={inputName} />
                 <button
                     type="button"
                     onClick={handleToggle}
