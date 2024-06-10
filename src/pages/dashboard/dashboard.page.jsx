@@ -7,8 +7,11 @@ import { IoBag } from "react-icons/io5";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import ToDoList from "../../components/to_do_list/to_do_list.component";
 import ChartsContainer from "../../components/charts_container/charts_container.component";
+// hooks
+import { useState } from "react";
 
 const DashboardPage = () => {
+    const [showCount, setShowCount] = useState(3);
     return(
         <div>
             {/* header */}
@@ -61,10 +64,12 @@ const DashboardPage = () => {
                 {/* heading */}
                 <p className="text-primary-100 text-[1.6rem] lg:text-[2.4rem] font-bold">To-do List</p>
                 {/* see all */}
-                <p className="text-black-100 flex items-center cursor-pointer"><span className="text-[1.2rem] lg:text-[2rem]">See all</span> <MdOutlineKeyboardArrowRight className="text-[1.2rem] lg:text-[3rem]" /> </p>
+                <p onClick={() => {
+                    setShowCount(showCount === false ? 3 : false)
+                }} className="text-black-100 flex items-center cursor-pointer"><span className="text-[1.2rem] lg:text-[2rem]">{showCount? 'See all' : 'See less'}</span> <MdOutlineKeyboardArrowRight className="text-[1.2rem] lg:text-[3rem]" /> </p>
             </div>
-            <div className="w-[90%] mx-auto">
-                <ToDoList showCount={3} />
+            <div className="w-[90%] max-h-[250px] md:max-h-[400px] overflow-y-scroll mx-auto">
+                <ToDoList showCount={showCount} />
             </div>
         </div>
     )

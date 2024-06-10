@@ -7,14 +7,22 @@ import { MyContext } from "../../App";
 
 const ToDoList = ({showCount, filteredList, AddClassName}) => {
     const {contextState, setContextState} = useContext(MyContext);
-    // filtered to do list
-    contextState
+    // handle delete todo
     const handleDeleteTodo = () => {
         setContextState((prevValues) => ({
             ...prevValues,
             showTodoDeleteModal: true
         }))
     }
+
+    // handle edit todo
+    const handleTodoEdit = () => {
+        setContextState((prevValues) => ({
+            ...prevValues,
+            showTodoEditModal: true
+        }))
+    }
+    
     return(
         <div>
             {/* to-do table (desktop) */}
@@ -50,7 +58,7 @@ const ToDoList = ({showCount, filteredList, AddClassName}) => {
                                             </td>
                                             <td className="text-black-100 py-[2.8rem] pr-[5rem]">
                                                 <div className="flex items-center gap-[1rem] justify-end">
-                                                    <FiEdit className="text-[2.2rem] cursor-pointer" />
+                                                    <FiEdit onClick={handleTodoEdit} className="text-[2.2rem] cursor-pointer" />
                                                     <HiOutlineTrash onClick={handleDeleteTodo} className="text-[2.3rem] text-red-100 cursor-pointer" />
                                                 </div>
                                             </td>
@@ -77,7 +85,7 @@ const ToDoList = ({showCount, filteredList, AddClassName}) => {
                                             </td>
                                             <td className="text-black-100 py-[2.8rem] pr-[5rem]">
                                                 <div className="flex items-center gap-[1rem] justify-end">
-                                                    <FiEdit className="text-[2.2rem] cursor-pointer" />
+                                                    <FiEdit onClick={handleTodoEdit} className="text-[2.2rem] cursor-pointer" />
                                                     <HiOutlineTrash onClick={handleDeleteTodo} className="text-[2.3rem] text-red-100 cursor-pointer" />
                                                 </div>
                                             </td>
@@ -114,7 +122,7 @@ const ToDoList = ({showCount, filteredList, AddClassName}) => {
                                         </div>
                                         <div className="text-black-100">
                                             <div className="flex items-center gap-[0.05rem] justify-end">
-                                                <FiEdit className="text-[1.2rem] cursor-pointer" />
+                                                <FiEdit onClick={handleTodoEdit} className="text-[1.2rem] cursor-pointer" />
                                                 <HiOutlineTrash onClick={handleDeleteTodo} className="text-[1.3rem] text-red-100 cursor-pointer" />
                                             </div>
                                         </div>
@@ -145,7 +153,7 @@ const ToDoList = ({showCount, filteredList, AddClassName}) => {
                                         </div>
                                         <div className="text-black-100">
                                             <div className="flex items-center gap-[0.05rem] justify-end">
-                                                <FiEdit className="text-[1.2rem] cursor-pointer" />
+                                                <FiEdit onClick={handleTodoEdit} className="text-[1.2rem] cursor-pointer" />
                                                 <HiOutlineTrash onClick={handleDeleteTodo} className="text-[1.3rem] text-red-100 cursor-pointer" />
                                             </div>
                                         </div>
