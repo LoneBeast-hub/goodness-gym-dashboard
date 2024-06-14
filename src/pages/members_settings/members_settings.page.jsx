@@ -10,11 +10,12 @@ import { IoMdMail } from "react-icons/io";
 import { FaPhoneAlt, FaCalendarCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const SettingsPage = () => {
+const MembersSettingsPage = () => {
+    const membersDashboardRoute = '/members_dashboard';
     return(
         <div>
             {/* header */}
-            <Header pageName='Settings' routeTo='/settings' />
+            <Header pageName='Settings' routeTo={`${membersDashboardRoute}/settings`} />
             {/* body */}
             <div className="w-[90%] mx-auto">
                 {/* heading */}
@@ -32,7 +33,7 @@ const SettingsPage = () => {
                         </div>
                         {/* edit profile button */}
                         <CustomButton AddClassName='h-fit' primaryColored>
-                            <Link className="flex gap-[0.54rem] md:gap-[1rem] py-[1rem] md:py-[2.5rem] md:px-[3.3rem] px-[1.7rem] items-center" to='/settings/edit_profile'>
+                            <Link className="flex gap-[0.54rem] md:gap-[1rem] py-[1rem] md:py-[2.5rem] md:px-[3.3rem] px-[1.7rem] items-center" to={`${membersDashboardRoute}/settings/edit_profile`}>
                                 <FiEdit className="text-[1.2rem] md:text-[2.4rem]" /><span className="text-[1.2rem] md:text-[2.4rem]">Edit Profile</span>
                             </Link>
                         </CustomButton>
@@ -124,4 +125,4 @@ const SettingsPage = () => {
     )
 }
 
-export default SettingsPage;
+export default MembersSettingsPage;

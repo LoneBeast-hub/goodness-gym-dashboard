@@ -5,7 +5,7 @@ import { HiOutlineTrash } from "react-icons/hi2";
 import { useContext } from "react";
 import { MyContext } from "../../App";
 
-const ToDoList = ({showCount, filteredList, AddClassName}) => {
+const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
     const {contextState, setContextState} = useContext(MyContext);
     // handle delete todo
     const handleDeleteTodo = () => {
@@ -167,4 +167,4 @@ const ToDoList = ({showCount, filteredList, AddClassName}) => {
     )
 }
 
-export default ToDoList;
+export default MembersToDoList;

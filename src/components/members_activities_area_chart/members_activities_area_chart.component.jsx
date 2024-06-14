@@ -9,7 +9,7 @@ import {
     Tooltip,
     Filler
 } from 'chart.js';
-import { areaChartData } from './activities_area_chart_data';
+import { areaChartData } from './members_activities_area_chart_data';
 
 // register the chart
 ChartJS.register(
@@ -22,7 +22,7 @@ ChartJS.register(
     Filler
 );
 
-const ActivitiesAreaChart = () => {
+const MembersActivitiesAreaChart = () => {
     const options = {
         maintainAspectRatio: false,
         elements: {
@@ -70,4 +70,4 @@ const ActivitiesAreaChart = () => {
     )
 }
 
-export default ActivitiesAreaChart;
+export default MembersActivitiesAreaChart;

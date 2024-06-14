@@ -5,17 +5,18 @@ import { BsFire } from "react-icons/bs";
 import { FaHeartbeat } from "react-icons/fa";
 import { IoBag } from "react-icons/io5";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import ToDoList from "../../components/to_do_list/to_do_list.component";
-import ChartsContainer from "../../components/charts_container/charts_container.component";
+import MembersToDoList from "../../components/members_to_do_list/members_to_do_list.component";
+import MembersChartsContainer from "../../components/members_charts_container/members_charts_container.component";
 // hooks
 import { useState } from "react";
 
-const DashboardPage = () => {
+const MembersDashboardPage = () => {
     const [showCount, setShowCount] = useState(3);
+    const membersDashboardRoute = '/members_dashboard';
     return(
         <div>
             {/* header */}
-            <Header pageName='Dasboard' routeTo='/' />
+            <Header pageName='Dasboard' routeTo={membersDashboardRoute} />
             {/* body */}
             <div className="w-[90%] mx-auto">
                 {/* heading */}
@@ -57,7 +58,7 @@ const DashboardPage = () => {
                     </div>
                 </div>
                 {/* Charts Container */}
-                <ChartsContainer />
+                <MembersChartsContainer />
             </div>
             {/* To do List body (contd) */}
             <div className="flex w-[90%] mx-auto mb-[1.9rem] mt-[2.4rem] items-center justify-between">
@@ -69,10 +70,10 @@ const DashboardPage = () => {
                 }} className="text-black-100 flex items-center cursor-pointer"><span className="text-[1.2rem] lg:text-[2rem]">{showCount? 'See all' : 'See less'}</span> <MdOutlineKeyboardArrowRight className="text-[1.2rem] lg:text-[3rem]" /> </p>
             </div>
             <div className="w-[90%] max-h-[250px] md:max-h-[400px] overflow-y-scroll mx-auto">
-                <ToDoList showCount={showCount} />
+                <MembersToDoList showCount={showCount} />
             </div>
         </div>
     )
 }
 
-export default DashboardPage;
+export default MembersDashboardPage;

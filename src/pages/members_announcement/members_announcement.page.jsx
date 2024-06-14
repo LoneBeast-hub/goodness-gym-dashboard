@@ -56,11 +56,12 @@ const announcementData = [
     }
 ]
 
-const AnnouncementPage = () => {
+const MembersAnnouncementPage = () => {
+    const membersDashboardRoute = '/members_dashboard';
     return(
         <div>
             {/* header */}
-            <Header pageName='Announcement' routeTo='/announcement' />
+            <Header pageName='Announcement' routeTo={`${membersDashboardRoute}/announcement`} />
             {/* body */}
             <div className="w-[90%] mx-auto">
                 {/* heading */}
@@ -108,4 +109,4 @@ const AnnouncementPage = () => {
     )
 }
 
-export default AnnouncementPage;
+export default MembersAnnouncementPage;

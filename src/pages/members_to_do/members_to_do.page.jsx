@@ -3,11 +3,11 @@ import Header from "../../components/header/header.component";
 // use context
 import { useContext, useState } from "react";
 import { MyContext } from "../../App";
-import ToDoList from "../../components/to_do_list/to_do_list.component";
+import MembersToDoList from "../../components/members_to_do_list/members_to_do_list.component";
 import CustomButton from "../../components/custom_button/custom_button.component";
 import { FaPlus } from "react-icons/fa";
 
-const ToDoPage = () => {
+const MembersToDoPage = () => {
     const { contextState, setContextState } = useContext(MyContext);
     const [selectedFilters, setSelectedFilters] = useState([]);
 
@@ -44,11 +44,12 @@ const ToDoPage = () => {
     }
 
     const filteredToDoList = contextState.toDoListData.filter(filterByProgress);
+    const membersDashboardRoute = '/members_dashboard';
 
     return(
         <div>
             {/* header */}
-            <Header pageName='To-do' routeTo='/to_do' />
+            <Header pageName='To-do' routeTo={`${membersDashboardRoute}/to_do`} />
             {/* body */}
             <div className="">
                 {/* header */}
@@ -92,10 +93,10 @@ const ToDoPage = () => {
                         </CustomButton>
                     </div>
                 </div>
-                <ToDoList AddClassName='md:w-[90%] mx-auto' filteredList={filteredToDoList} />
+                <MembersToDoList AddClassName='md:w-[90%] mx-auto' filteredList={filteredToDoList} />
             </div>
         </div>
     )
 }
 
-export default ToDoPage;
+export default MembersToDoPage;

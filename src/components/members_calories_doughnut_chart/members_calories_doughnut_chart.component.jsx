@@ -13,7 +13,7 @@ ChartJS.register(
     Legend
 );
 
-const CaloriesDoughnutChart = () => {
+const MembersCaloriesDoughnutChart = () => {
     const data = {
         labels: [
             'Carbohydrate',
@@ -79,4 +79,4 @@ const CaloriesDoughnutChart = () => {
     )
 }
 
-export default CaloriesDoughnutChart;
+export default MembersCaloriesDoughnutChart;

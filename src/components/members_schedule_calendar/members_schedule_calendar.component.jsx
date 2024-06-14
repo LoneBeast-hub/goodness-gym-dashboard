@@ -1,7 +1,7 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
-const ScheduleCalendar = () => {
+const MembersScheduleCalendar = () => {
   const events = [
     { title: '9:00AM\nYoga', date: '2024-06-02', className: 'event-day'},
     { title: '2:00PM\nDance', date: '2024-06-02', className: 'event-day'},
@@ -39,4 +39,4 @@ const renderEventContent = (info) => {
     );
 };
 
-export default ScheduleCalendar;
+export default MembersScheduleCalendar;

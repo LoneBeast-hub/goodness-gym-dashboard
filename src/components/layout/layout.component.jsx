@@ -1,29 +1,34 @@
 // react router dom
-import { NavLink, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes, useLocation } from "react-router-dom";
 // pages
-import DashboardPage from "../../pages/dashboard/dashboard.page";
-import ToDoPage from "../../pages/to_do/to_do.page";
+import MembersDashboardPage from "../../pages/members_dashboard/members_dashboard.page";
+import MembersToDoPage from "../../pages/members_to_do/members_to_do.page";
 // imgs
 import Logo from '../../assets/ggfm_logo.png';
 // react icons
 import { AiOutlineLogout } from "react-icons/ai";
-import { BsGrid1X2 } from "react-icons/bs";
-import { RiFileList3Line } from "react-icons/ri";
-import { FaRegClock } from "react-icons/fa6";
-import { BsMegaphone } from "react-icons/bs";
-import { IoSettingsOutline } from "react-icons/io5";
 // styles
 import './layout.styles.css';
-import ClassSchedulePage from "../../pages/class_schedule/class_schedule.page";
-import AnnouncementPage from "../../pages/announcement/announcement.page";
-import SettingsPage from "../../pages/settings/settings.page";
+import MembersClassSchedulePage from "../../pages/members_class_schedule/members_class_schedule.page";
+import MembersAnnouncementPage from "../../pages/members_announcement/members_announcement.page";
+import MembersSettingsPage from "../../pages/members_settings/members_settings.page";
 // use context
 import { useContext } from "react";
 import { MyContext } from "../../App";
-import EditProfile from "../../pages/edit_profile/edit_profile.page";
+import MembersEditProfilePage from "../../pages/members_edit_profile/members_edit_profile.page";
+import MembersDashboardRoutes from "../members_dashboard_routes/members_dashboard_routes.component";
+import AdminDashboardRoutes from "../admin_dashboard_routes/admin_dashboard_routes.component";
+import AdminDashboardPage from "../../pages/admin_dashboard/admin_dashboard.page";
+import AdminManageMembersPage from "../../pages/admin_manage_members/admin_manage_members.page";
+import AdminAnnouncementPage from "../../pages/admin_announcement/admin_announcement.page";
+import AdminSettingsPage from "../../pages/admin_settings/admin_settings.page";
+import AdminEditProfilePage from "../../pages/admin_edit_profile/admin_edit_profile.page";
 
 const Layout = () => {
+    const membersDashboardRoute = '/members_dashboard';
+    const adminDashboardRoute = '/admin_dashboard';
     const {contextState} = useContext(MyContext);
+    const location = useLocation();
     return(
         <div className="flex w-full">
             {/* desktop sidebar */}
@@ -33,28 +38,12 @@ const Layout = () => {
                 {/* routes container */}
                 <div className="h-full relative">
                     {/* pages routes */}
-                    <div className="flex flex-col gap-[0.5rem]">
-                        <NavLink to='/' activeclassname='active' className="flex text-black-2 gap-[1rem] rounded-[0.5rem] w-full font-medium p-[2rem]">
-                            <BsGrid1X2 className="text-[2rem]" />
-                            <span className="text-[1.8rem]">Dashboard</span>
-                        </NavLink>
-                        <NavLink to='/to_do' activeclassname='active' className="flex text-black-2 gap-[1rem] rounded-[0.5rem] w-full font-medium p-[2rem]">
-                            <RiFileList3Line className="text-[2.2rem]" />
-                            <span className="text-[1.8rem]">To-do</span>
-                        </NavLink>
-                        <NavLink to='/class_schedule' activeclassname='active' className="flex text-black-2 gap-[1rem] rounded-[0.5rem] w-full font-medium p-[2rem]">
-                            <FaRegClock className="text-[2.2rem]" />
-                            <span className="text-[1.8rem]">Class Schedule</span>
-                        </NavLink>
-                        <NavLink to='/announcement' activeclassname='active' className="flex text-black-2 gap-[1rem] rounded-[0.5rem] w-full font-medium p-[2rem]">
-                            <BsMegaphone className="text-[2.2rem]" />
-                            <span className="text-[1.8rem]">Announcement</span>
-                        </NavLink>
-                        <NavLink to='/settings' activeclassname='active' className="flex text-black-2 gap-[1rem] rounded-[0.5rem] w-full font-medium p-[2rem]">
-                            <IoSettingsOutline className="text-[2.2rem]" />
-                            <span className="text-[1.8rem]">Settings</span>
-                        </NavLink>
-                    </div>
+                    {
+                        location.pathname.startsWith(`${membersDashboardRoute}`)?
+                            <MembersDashboardRoutes />
+                        :
+                            <AdminDashboardRoutes />
+                    }
                 </div>
                 {/* logout */}
                 <p className="absolute bottom-[7.2rem] left-[3.6rem] font-medium gap-[1rem] flex text-black-2"><AiOutlineLogout className="text-[2rem] transform -rotate-90" /> <span className="text-[2rem]">Logout</span></p>
@@ -65,12 +54,17 @@ const Layout = () => {
             <div className="w-full pb-[2.4rem]">
                 {/* Routes */}
                 <Routes>
-                    <Route path="/" exact element={<DashboardPage />} />
-                    <Route path="/to_do" element={<ToDoPage />} />
-                    <Route path="/class_schedule" element={<ClassSchedulePage />} />
-                    <Route path="/announcement" element={<AnnouncementPage />} />
-                    <Route path="/settings" element={<SettingsPage />} />
-                    <Route path="/settings/edit_profile" element={<EditProfile />} />
+                    <Route path={membersDashboardRoute} exact element={<MembersDashboardPage />} />
+                    <Route path={`${membersDashboardRoute}/to_do`} element={<MembersToDoPage />} />
+                    <Route path={`${membersDashboardRoute}/class_schedule`} element={<MembersClassSchedulePage />} />
+                    <Route path={`${membersDashboardRoute}/announcement`} element={<MembersAnnouncementPage />} />
+                    <Route path={`${membersDashboardRoute}/settings`} element={<MembersSettingsPage />} />
+                    <Route path={`${membersDashboardRoute}/settings/edit_profile`} element={<MembersEditProfilePage />} />
+                    <Route path={adminDashboardRoute} element={<AdminDashboardPage />} />
+                    <Route path={`${adminDashboardRoute}/manage_members`} element={<AdminManageMembersPage />} />
+                    <Route path={`${adminDashboardRoute}/announcement`} element={<AdminAnnouncementPage />} />
+                    <Route path={`${adminDashboardRoute}/settings`} element={<AdminSettingsPage />} />
+                    <Route path={`${adminDashboardRoute}/settings/edit_profile`} element={<AdminEditProfilePage />} />
                 </Routes>
             </div>
         </div>

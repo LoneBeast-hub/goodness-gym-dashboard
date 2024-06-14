@@ -7,11 +7,12 @@ import { FaCamera } from "react-icons/fa";
 import CustomButton from "../../components/custom_button/custom_button.component";
 import CustomPasswordInput from "../../components/custom_password_input/custom_password_input.component";
 
-const EditProfile = () => {
+const MembersEditProfilePage = () => {
+    const membersDashboardRoute = '/members_dashboard';
     return(
         <div>
             {/* header */}
-            <Header nestedPage={{pageName: 'Settings', routeTo: '/settings'}} pageName='Edit Profile' routeTo='/settings/edit_profile' />
+            <Header nestedPage={{pageName: 'Settings', routeTo: `${membersDashboardRoute}/settings`}} pageName='Edit Profile' routeTo={`${membersDashboardRoute}/settings/edit_profile`} />
             {/* body (personal information) */}
             <div className="w-[90%] mx-auto">
                 {/* heading */}
@@ -99,4 +100,4 @@ const EditProfile = () => {
     )
 }
 
-export default EditProfile;
+export default MembersEditProfilePage;
