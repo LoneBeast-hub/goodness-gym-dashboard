@@ -4,6 +4,8 @@ import Header from "../../components/header/header.component";
 import { IoIosPeople } from "react-icons/io";
 import { GoChecklist } from "react-icons/go";
 import { LiaDumbbellSolid } from "react-icons/lia";
+import AdminChartsContainer from "../../components/admin_charts_container/admin_charts_container.component";
+import AdminActivitiesAreaChart from "../../components/admin_activities_area_chart/admin_activities_area_chart.component";
 
 const AdminDashboardPage = () => {
     const adminDashboardRoute = '/admin_dashboard';
@@ -62,6 +64,10 @@ const AdminDashboardPage = () => {
                         <p className="text-black-100 font-medium"><span className="text-[1.9rem] md:text-[3rem]">50</span></p>
                     </div>
                 </div>
+                {/* Registered members charts */}
+                <AdminChartsContainer />
+                {/* Activities Chart */}
+                <AdminActivitiesAreaChart />
             </div>
         </div>
     )
