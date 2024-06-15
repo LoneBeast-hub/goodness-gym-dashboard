@@ -23,7 +23,7 @@ const TodoAddModal = () => {
                     {/* Due Date input */}
                     <div className="flex w-full mt-[2rem] md:mt-[3rem] flex-col items-start md:gap-[1.5rem] gap-[0.5rem]">
                         <label htmlFor="due_date" className="text-[1.4rem] md:text-[2rem] text-black-100">Due Date</label>
-                        <input required className="border border-gray-e5 w-full text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="date" name="due_date" id="due_date" />
+                        <input required className="border leading-normal border-gray-e5 w-full text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="date" name="due_date" id="due_date" />
                     </div>
                     {/* Reminder input */}
                     <div className="flex w-full mt-[2rem] md:mt-[3rem] flex-col items-start md:gap-[1.5rem] gap-[0.5rem]">
