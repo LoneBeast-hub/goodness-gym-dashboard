@@ -10,11 +10,11 @@ import { IoMdMail } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const AdminSettingsPage = () => {
-    const AdminDashboardRoute = '/admin_dashboard';
+    const adminDashboardRoute = '/admin_dashboard';
     return(
         <div>
             {/* header */}
-            <Header pageName='Settings' routeTo={`${AdminDashboardRoute}/settings`} />
+            <Header pageName='Settings' routeTo={`${adminDashboardRoute}/settings`} />
             {/* body */}
             <div className="w-[90%] mx-auto">
                 {/* heading */}
@@ -32,7 +32,7 @@ const AdminSettingsPage = () => {
                         </div>
                         {/* edit profile button */}
                         <CustomButton AddClassName='h-fit' primaryColored>
-                            <Link className="flex gap-[0.54rem] md:gap-[1rem] py-[1rem] md:py-[2.5rem] md:px-[3.3rem] px-[1.7rem] items-center" to={`${AdminDashboardRoute}/settings/edit_profile`}>
+                            <Link className="flex gap-[0.54rem] md:gap-[1rem] py-[1rem] md:py-[2.5rem] md:px-[3.3rem] px-[1.7rem] items-center" to={`${adminDashboardRoute}/settings/edit_profile`}>
                                 <FiEdit className="text-[1.2rem] md:text-[2.4rem]" /><span className="text-[1.2rem] md:text-[2.4rem]">Edit Profile</span>
                             </Link>
                         </CustomButton>
