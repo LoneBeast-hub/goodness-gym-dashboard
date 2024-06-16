@@ -7,7 +7,7 @@ import { MyContext } from "../../App";
 import { LiaTimesSolid } from "react-icons/lia";
 
 const ConfirmPostNotificationModal = () => {
-    const {setContextState} = useContext(MyContext);
+    const {contextState, setContextState} = useContext(MyContext);
 
     return(
         <div className="w-[100vw] h-[100vh] flex items-center justify-center bg-[rgba(0,0,0,0.6)] fixed z-10 top-0">
@@ -24,7 +24,7 @@ const ConfirmPostNotificationModal = () => {
                             showConfirmPostNotificationModal: false
                         }))
                     }} AddClassName='w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' grayColored><span className="text-[1.6rem] md:text-[2rem]">No</span></CustomButton>
-                    <CustomButton AddClassName='w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' primaryColored><span className="text-[1.6rem] md:text-[2rem]">Send</span></CustomButton>
+                    <CustomButton setType='submit' clickFunction={contextState.handleAnnouncementSubmit} AddClassName='w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' primaryColored><span className="text-[1.6rem] md:text-[2rem]">Send</span></CustomButton>
                 </div>
                 {/* cancel */}
                 <div onClick={() => {

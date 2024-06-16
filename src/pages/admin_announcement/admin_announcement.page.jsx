@@ -31,6 +31,29 @@ const AdminAnnouncementPage = () => {
         handleFiles(event.target.files);
     };
 
+    // Notification submission handler
+    const handleAnnouncementSubmit = (e) => {
+        e.preventDefault();
+        // code to handle submit will go here
+
+        // after submission, clear form
+        setTitle('');
+        setBody('');
+        setSelectedImage(null);
+
+        // then, set success message
+        setContextState((prevValues) => ({
+            ...prevValues,
+            successMessage: 'Notification sent successfully'
+        }))
+        // then, show success message
+        setContextState((prevValues) => ({
+            ...prevValues,
+            showSuccessModal: true,
+            showConfirmPostNotificationModal: false
+        }))
+    }
+
     const handleFiles = (files) => {
         const file = files[0];
         if (file) {
@@ -65,15 +88,11 @@ const AdminAnnouncementPage = () => {
         setIsFormValid(isValid);
     }, [title, body, selectedImage, error]);
 
-    const handleAnnouncementSubmit = (e) => {
-        e.preventDefault();
-        // code to handle submit will go here
-    }
-
     const handleConfirmPostSubmission = () => {
         setContextState((prevValues) => ({
             ...prevValues,
-            showConfirmPostNotificationModal: true
+            showConfirmPostNotificationModal: true,
+            handleAnnouncementSubmit: handleAnnouncementSubmit
         }))
         
     }
@@ -89,7 +108,7 @@ const AdminAnnouncementPage = () => {
                 {/* body */}
                 <div className="border border-gray-e5 p-[1.7rem] md:pl-[4.7rem] md:pr-[3.8rem] md:pb-[1.9rem] md:pt-[3.8rem]">
                     {/* form */}
-                    <form className="mt-[14px] md:mt[17px]" onSubmit={handleAnnouncementSubmit}>
+                    <form className="mt-[14px] md:mt[17px]" onSubmit={(e) => handleAnnouncementSubmit(e)}>
                         {/* Title input */}
                         <div className="flex w-full flex-col md:gap-[1.5rem] gap-[0.5rem]">
                             <label htmlFor="title" className="text-[1.4rem] md:text-[2rem] text-black-100">Title</label>
