@@ -2,6 +2,9 @@ import React, { useRef, useState, useEffect } from 'react';
 import { CiImageOn } from 'react-icons/ci';
 import Header from "../../components/header/header.component";
 import CustomButton from "../../components/custom_button/custom_button.component";
+// use context
+import { useContext } from "react";
+import { MyContext } from "../../App";
 
 const AdminAnnouncementPage = () => {
     const fileInputRef = useRef(null);
@@ -11,6 +14,7 @@ const AdminAnnouncementPage = () => {
     const [body, setBody] = useState('');
     const [isFormValid, setIsFormValid] = useState(false);
     const adminDashboardRoute = '/admin_dashboard';
+    const {setContextState} = useContext(MyContext);
 
     const handleFileDrop = (event) => {
         event.preventDefault();
@@ -61,6 +65,19 @@ const AdminAnnouncementPage = () => {
         setIsFormValid(isValid);
     }, [title, body, selectedImage, error]);
 
+    const handleAnnouncementSubmit = (e) => {
+        e.preventDefault();
+        // code to handle submit will go here
+    }
+
+    const handleConfirmPostSubmission = () => {
+        setContextState((prevValues) => ({
+            ...prevValues,
+            showConfirmPostNotificationModal: true
+        }))
+        
+    }
+
     return (
         <div>
             {/* header */}
@@ -72,7 +89,7 @@ const AdminAnnouncementPage = () => {
                 {/* body */}
                 <div className="border border-gray-e5 p-[1.7rem] md:pl-[4.7rem] md:pr-[3.8rem] md:pb-[1.9rem] md:pt-[3.8rem]">
                     {/* form */}
-                    <form className="mt-[14px] md:mt[17px]" action="#">
+                    <form className="mt-[14px] md:mt[17px]" onSubmit={handleAnnouncementSubmit}>
                         {/* Title input */}
                         <div className="flex w-full flex-col md:gap-[1.5rem] gap-[0.5rem]">
                             <label htmlFor="title" className="text-[1.4rem] md:text-[2rem] text-black-100">Title</label>
@@ -133,7 +150,7 @@ const AdminAnnouncementPage = () => {
                         </div>
                         {/* Update button */}
                         <div className="w-full flex mt-[2rem] md:justify-end">
-                            <CustomButton setType='submit' AddClassName={`w-full md:w-fit py-[1.5rem] md:py-[2.5rem] md:px-[7.2rem]`} disabled={!isFormValid} primaryColored={isFormValid? true : false} grayColored={isFormValid? false : true}>
+                            <CustomButton clickFunction={handleConfirmPostSubmission} setType='button' AddClassName={`w-full md:w-fit py-[1.5rem] md:py-[2.5rem] md:px-[7.2rem]`} disabled={!isFormValid} primaryColored={isFormValid? true : false} grayColored={isFormValid? false : true}>
                                 <span className="text-[1.6rem] md:text-[2.4rem]">Send</span>
                             </CustomButton>
                         </div>

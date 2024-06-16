@@ -7,6 +7,7 @@ import TodoAddModal from "./components/todo_add_modal/todo_add_modal.component";
 import TodoEditModal from "./components/todo_edit_modal/todo_edit_modal.component";
 import { Routes, Route, useLocation } from "react-router-dom";
 import DummyAuth from "./pages/dummy_auth/dummy_auth.page";
+import ConfirmPostNotificationModal from "./components/confirm_post_notification_modal/confirm_post_notification_modal.component";
 
 export const MyContext = createContext();
 
@@ -15,6 +16,7 @@ function App() {
     showTodoDeleteModal: false,
     showTodoAddModal: false,
     showTodoEditModal: false,
+    showConfirmPostNotificationModal: false,
     showNav: false,
     toDoListData: [
       {
@@ -72,6 +74,8 @@ function App() {
             {contextState.showTodoAddModal? <TodoAddModal /> : ''}
             {/* todo edit modal */}
             {contextState.showTodoEditModal? <TodoEditModal /> : ''}
+            {/* Send post confirmation modal */}
+            {contextState.showConfirmPostNotificationModal? <ConfirmPostNotificationModal /> : ''}
           </>
       }
     </MyContext.Provider>
