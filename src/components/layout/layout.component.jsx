@@ -42,7 +42,14 @@ const Layout = () => {
                         location.pathname.startsWith(`${membersDashboardRoute}`)?
                             <MembersDashboardRoutes />
                         :
+                            ''
+                    }
+
+                    {
+                        location.pathname.startsWith(`${adminDashboardRoute}`)?
                             <AdminDashboardRoutes />
+                        :
+                            ''
                     }
                 </div>
                 {/* logout */}
