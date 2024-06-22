@@ -3,6 +3,7 @@ import Header from "../../components/header/header.component";
 import CustomButton from "../../components/custom_button/custom_button.component";
 // react icons
 import {FaPlus} from 'react-icons/fa'
+import AdminManageMembersTable from "../../components/admin_manage_members_table/admin_manage_members_table.component";
 
 const AdminManageMembersPage = () => {
     const adminDashboardRoute = '/admin_dashboard';
@@ -16,10 +17,10 @@ const AdminManageMembersPage = () => {
                 <div className="w-[90%] mx-auto flex mt-[1rem] gap-[1.7rem] xl:gap-0 xl:items-center justify-between mb-[1.8rem] md:mb-[2.1rem] flex-col xl:flex-row">
                     {/* heading */}
                     <p className="text-primary-100 font-bold text-[2rem] md:text-[3.2rem]">Manage Members</p>
-                    {/* todo filter and add */}
+                    {/* Manage members filter and add */}
                     <div className="flex gap-[7px] max-h-fit items-center">
                         {/* filters */}
-                        <div className="max-h-fit flex gap-[7px] md:[13px]">
+                        <div className="max-h-fit flex gap-[7px] md:gap-[13px]">
                             {/* <button
                                 className={`md:px-[2rem] max-h-fit border gap-[3px] md:gap-[5px] flex items-center px-[0.7rem] py-[0.8rem] md:py-[1.5rem] text-black-100 bg-gray-fa ${selectedFilters.includes('just started') ? 'border-red-100' : 'border-gray-fa'}`}
                                 onClick={() => handleFilterClick('just started')}
@@ -53,6 +54,8 @@ const AdminManageMembersPage = () => {
                         </CustomButton>
                     </div>
                 </div>
+                {/* Manage members table */}
+                <AdminManageMembersTable />
             </div>
         </div>
     )

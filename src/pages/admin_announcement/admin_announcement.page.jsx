@@ -104,7 +104,7 @@ const AdminAnnouncementPage = () => {
             {/* body */}
             <div className="w-[90%] mx-auto">
                 {/* heading */}
-                <p className="text-primary-100 md:mb-[2.1rem] font-bold text-[2rem] md:text-[3.2rem]">Announcement</p>
+                <p className="text-primary-100 mb-[1.8rem] md:mb-[2.1rem] font-bold text-[2rem] md:text-[3.2rem]">Announcement</p>
                 {/* body */}
                 <div className="border border-gray-e5 p-[1.7rem] md:pl-[4.7rem] md:pr-[3.8rem] md:pb-[1.9rem] md:pt-[3.8rem]">
                     {/* form */}

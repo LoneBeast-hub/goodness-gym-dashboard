@@ -9,6 +9,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import DummyAuth from "./pages/dummy_auth/dummy_auth.page";
 import ConfirmPostNotificationModal from "./components/confirm_post_notification_modal/confirm_post_notification_modal.component";
 import SuccessModal from "./components/success_modal/succes_modal.component";
+import DisableMemberModal from "./components/disable_member_modal/disable_member_modal.component";
+import DeleteMemberModal from "./components/delete_member_modal/delete_member_modal.component";
+import MemberDetailsModal from "./components/member_details_modal/member_details_modal.component";
 
 export const MyContext = createContext();
 
@@ -17,6 +20,9 @@ function App() {
     showTodoDeleteModal: false,
     showTodoAddModal: false,
     showTodoEditModal: false,
+    showDisableMemberModal: false,
+    showMemberDetailsModal: null,
+    showDeleteMemberModal: false,
     showConfirmPostNotificationModal: false,
     successMessage: '',
     showNav: false,
@@ -59,6 +65,28 @@ function App() {
         progress: 100,
         due_date: '04/03/23 - 10pm'
       }
+    ],
+    membersData: [
+      {
+        id: 1,
+        name: 'John Doe',
+        username: 'john_doe',
+        phone: '0123456789',
+        email: 'example@gmail.com',
+        status: true,
+        date_of_registration: 'Oct 6, 2023',
+        plan: 'Classical - N22k per month'
+      },
+      {
+        id: 2,
+        name: 'Steve Doe',
+        username: 'steve_doe',
+        phone: '0987654321',
+        email: 'new.example@gmail.com',
+        status: false,
+        date_of_registration: 'Mar 6, 2024',
+        plan: 'Classical - N22k per month'
+      }
     ]
   })
   const location = useLocation();
@@ -82,6 +110,12 @@ function App() {
             {contextState.showConfirmPostNotificationModal? <ConfirmPostNotificationModal /> : ''}
             {/* Success Modal */}
             {contextState.showSuccessModal? <SuccessModal successMsg={contextState.successMessage} /> : ''}
+            {/* Disable member Modal */}
+            {contextState.showDisableMemberModal? <DisableMemberModal /> : ''}
+            {/* Delete member Modal */}
+            {contextState.showDeleteMemberModal? <DeleteMemberModal /> : ''}
+            {/* view member details Modal */}
+            {contextState.showMemberDetailsModal? <MemberDetailsModal showMemberDetailsModal={contextState.showMemberDetailsModal} /> : ''}
           </>
       }
     </MyContext.Provider>
