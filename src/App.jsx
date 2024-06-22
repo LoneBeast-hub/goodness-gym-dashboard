@@ -12,6 +12,7 @@ import SuccessModal from "./components/success_modal/succes_modal.component";
 import DisableMemberModal from "./components/disable_member_modal/disable_member_modal.component";
 import DeleteMemberModal from "./components/delete_member_modal/delete_member_modal.component";
 import MemberDetailsModal from "./components/member_details_modal/member_details_modal.component";
+import AdminMemberAddModal from "./components/admin_member_add_modal/admin_member_add_modal.component";
 
 export const MyContext = createContext();
 
@@ -30,6 +31,7 @@ function App() {
     showSuccessModal: false,
     handleAnnouncementSubmit: null,
     showActionsModal: null,
+    showMemberAddModal: false,
     filters: {
       search: '',
       fromDate: '',
@@ -154,6 +156,8 @@ function App() {
             {contextState.showDeleteMemberModal? <DeleteMemberModal /> : ''}
             {/* view member details Modal */}
             {contextState.showMemberDetailsModal? <MemberDetailsModal showMemberDetailsModal={contextState.showMemberDetailsModal} /> : ''}
+            {/* Add member Modal */}
+            {contextState.showMemberAddModal? <AdminMemberAddModal /> : ''}
           </>
       }
     </MyContext.Provider>

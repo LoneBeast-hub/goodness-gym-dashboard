@@ -5,8 +5,12 @@ import CustomButton from "../../components/custom_button/custom_button.component
 import {FaPlus} from 'react-icons/fa'
 import AdminManageMembersTable from "../../components/admin_manage_members_table/admin_manage_members_table.component";
 import ManageMembersFilters from "../../components/manage_members_filters/manage_members_filters.component";
+// context api
+import { MyContext } from "../../App";
+import { useContext } from "react";
 
 const AdminManageMembersPage = () => {
+    const { setContextState } = useContext(MyContext);
     const adminDashboardRoute = '/admin_dashboard';
     return(
         <div>
@@ -26,7 +30,7 @@ const AdminManageMembersPage = () => {
                         <CustomButton clickFunction={() => {
                             setContextState((prevValues) => ({
                                 ...prevValues,
-                                showTodoAddModal: true
+                                showMemberAddModal: true
                             }))
                         }} AddClassName='h-fit flex gap-[0.54rem] md:gap-[1rem] py-[0.8rem] md:py-[1.5rem] md:px-[2.2rem] px-[1rem] items-center' primaryColored>
                             <FaPlus className="text-[0.8rem] md:text-[1.5rem]" /><span className="text-[1.2rem] md:text-[1.8rem] md:font-medium">Add Member</span>
