@@ -168,7 +168,44 @@ const AdminManageMembersTable = ({ AddClassName }) => {
                                     <span className="text-black-100 text-[1.2rem]">{date_of_registration}</span>
                                 </div>
                                 {/* action menu */}
-                                <BsThreeDotsVertical className='text-black-2 text-[1.6rem]' />
+                                <div className='relative'>
+                                    <BsThreeDotsVertical onClick={() => {
+                                        setContextState((prevValues) => ({
+                                            ...prevValues,
+                                            showActionsModal: !contextState.showActionsModal? ({id}) : null
+                                        }))
+                                    }} className='text-black-2 text-[1.6rem]' />
+                                    {
+                                        contextState.showActionsModal?
+                                            contextState.showActionsModal.id === id?
+                                                <div className='flex gap-[0.3rem] right-0 top-[110%] z-10 shadow-md p-[1rem] bg-white flex-col absolute'>
+                                                    <IoMdEye onClick={() => {
+                                                        setContextState((prevValues) => ({
+                                                            ...prevValues,
+                                                            showMemberDetailsModal: {
+                                                                id, name, username, phone, email, status, date_of_registration, plan
+                                                            }
+                                                        }))
+                                                    }} className="text-black-100 text-[1.9rem] cursor-pointer" />
+                                                    <IoBanOutline onClick={() => {
+                                                        setContextState((prevValues) => ({
+                                                            ...prevValues,
+                                                            showDisableMemberModal: true
+                                                        }))
+                                                    }} className="text-black-100 text-[1.9rem] cursor-pointer" />
+                                                    <HiOutlineTrash onClick={() => {
+                                                        setContextState((prevValues) => ({
+                                                            ...prevValues,
+                                                            showDeleteMemberModal: true
+                                                        }))
+                                                    }} className="text-[1.9rem] text-red-100 cursor-pointer" />
+                                                </div>
+                                            :
+                                                ''
+                                        :
+                                            ''
+                                    }
+                                </div>
                             </div>
                         </div>
                     )

@@ -29,6 +29,7 @@ function App() {
     showDateRangePicker: false,
     showSuccessModal: false,
     handleAnnouncementSubmit: null,
+    showActionsModal: null,
     filters: {
       search: '',
       fromDate: '',
