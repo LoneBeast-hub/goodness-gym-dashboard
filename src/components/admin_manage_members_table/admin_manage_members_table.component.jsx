@@ -4,6 +4,7 @@ import { HiOutlineTrash } from "react-icons/hi2";
 import { IoMdEye } from "react-icons/io";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { IoBanOutline } from "react-icons/io5";
+import { BsThreeDotsVertical } from "react-icons/bs";
 import ReactPaginate from 'react-paginate';
 // styles
 import './admin_manage_members_table.styles.css';
@@ -64,9 +65,9 @@ const AdminManageMembersTable = ({ AddClassName }) => {
     };
 
     return (
-        <div className="w-[90%] mx-auto">
+        <div className="">
             {/* desktop table */}
-            <div className={`border-[0.5px] ${AddClassName} md:block w-full mx-auto hidden border-b-0 overflow-x-scroll border-gray-e5 rounded-[0.5rem]`}>
+            <div className={`border-[0.5px] ${AddClassName} md:block w-[90%] mx-auto hidden border-b-0 overflow-x-scroll border-gray-e5 rounded-[0.5rem]`}>
                 <table className="w-full table-fixed min-w-[600px]">
                     <thead>
                         <tr className="bg-gray-fa border-b-[0.5px] border-gray-e5">
@@ -135,7 +136,43 @@ const AdminManageMembersTable = ({ AddClassName }) => {
             </div>
             {/* Mobile Table */}
             <div className="block w-full table-auto md:hidden">
-                
+                {currentMembers.map(({ id, name, username, phone, email, status, date_of_registration, plan }, index) => {
+                    return(
+                        <div className="border-t-[0.5px] px-[5%] items-center justify-between flex py-[1.9rem] w-full border-gray-f2" key={index}>
+                            {/* left side */}
+                            <div className="flex flex-col">
+                                {/* name */}
+                                <span className="text-black-100 text-[1.4rem]">{name}</span>
+                                {/* email */}
+                                <span className="text-black-100 text-[1.4rem]">{email}</span>
+                            </div>
+                            {/* right side */}
+                            <div className="flex gap-[1rem] items-center">
+                                {/* status and date */}
+                                <div className="flex flex-col gap-[0.3rem] items-end">
+                                    {/* status */}
+                                    <div className="text-black-100">
+                                        {status ? (
+                                            <span className="flex items-center gap-[0.5rem]">
+                                                <span className="min-w-[8px] min-h-[8px] rounded-full bg-[#009688]"></span>
+                                                <span className="text-[1.2rem] truncate">Active</span>
+                                            </span>
+                                        ) : (
+                                            <span className="flex items-center gap-[0.5rem]">
+                                                <span className="min-w-[8px] min-h-[8px] rounded-full bg-red-100"></span>
+                                                <span className="text-[1.2rem] truncate">Expired</span>
+                                            </span>
+                                        )}
+                                    </div>
+                                    {/* date */}
+                                    <span className="text-black-100 text-[1.2rem]">{date_of_registration}</span>
+                                </div>
+                                {/* action menu */}
+                                <BsThreeDotsVertical className='text-black-2 text-[1.6rem]' />
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
             {/* Pagination */}
             <ReactPaginate
