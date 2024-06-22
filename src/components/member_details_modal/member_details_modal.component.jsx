@@ -3,11 +3,12 @@ import { LiaTimesSolid } from "react-icons/lia";
 // context api
 import { MyContext } from "../../App";
 import { useContext } from "react";
+import CustomButton from "../custom_button/custom_button.component";
 
 const MemberDetailsModal = ({showMemberDetailsModal: {id, name, username, phone, email, status, date_of_registration, plan}}) => {
     const {contextState, setContextState} = useContext(MyContext);
     return(
-        <div className="w-[100vw] overflow-y-scroll h-[100vh] flex items-center justify-center bg-[rgba(0,0,0,0.6)] fixed z-10 top-0">
+        <div className="w-[100vw] overflow-y-scroll h-fit min-h-[100vh] flex items-center justify-center bg-[rgba(0,0,0,0.6)] fixed z-10 top-0">
             <div className="w-[90%] items-center relative flex flex-col md:w-[60%] md:max-w-[923px] box-border text-center pt-[2.5rem] md:pt-[5rem] pb-[3.5rem] md:pb-[4.1rem] px-[2.5%] rounded-[5px] bg-white">
                 {/* title */}
                 <p className="text-[1.8rem] md:text-[3.2rem] text-primary-100 font-bold mb-[1.8rem]">View Members</p>
@@ -61,10 +62,14 @@ const MemberDetailsModal = ({showMemberDetailsModal: {id, name, username, phone,
                         <span className="lg:text-[1.8rem] text-[1.2rem]">{date_of_registration}</span>
                     </div>
                     {/* Plan */}
-                    <div className="w-full gap-[15px] py-[2rem] border-b border-b-gray-e5 items-center text-black-100 flex justify-between">
+                    <div className="w-full gap-[15px] py-[2rem] items-center text-black-100 flex justify-between">
                         <span className="lg:text-[1.8rem] text-[1.2rem]">Plan</span>
                         <span className="lg:text-[1.8rem] text-[1.2rem]">{plan}</span>
                     </div>
+                    {/* Remind Expired members */}
+                    {
+                        status? '' : <CustomButton AddClassName='w-full text-[1.2rem] lg:text-[1.8rem] py-[2rem] lg:py-[2.5rem]' primaryColored>Remind</CustomButton>
+                    }
                 </div>
                 {/* cancel */}
                 <div onClick={() => {
