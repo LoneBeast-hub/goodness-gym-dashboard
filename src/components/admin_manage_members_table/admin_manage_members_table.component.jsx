@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { MyContext } from "../../App";
 import { HiOutlineTrash } from "react-icons/hi2";
 import { IoMdEye } from "react-icons/io";
@@ -10,14 +10,54 @@ import './admin_manage_members_table.styles.css';
 
 const AdminManageMembersTable = ({ AddClassName }) => {
     const { contextState, setContextState } = useContext(MyContext);
+    const [filteredMembers, setFilteredMembers] = useState(contextState.membersData);
     const [currentPage, setCurrentPage] = useState(0);
     const membersPerPage = 9;
+
+    useEffect(() => {
+        const applyFilters = () => {
+            let members = contextState.membersData;
+
+            // Apply search filter
+            if (contextState.filters.search) {
+                members = members.filter(member => 
+                    member.name.toLowerCase().includes(contextState.filters.search.toLowerCase()) ||
+                    member.username.toLowerCase().includes(contextState.filters.search.toLowerCase()) ||
+                    member.email.toLowerCase().includes(contextState.filters.search.toLowerCase()) ||
+                    member.phone.includes(contextState.filters.search)
+                );
+            }
+
+            // Apply date filter
+            if (contextState.filters.fromDate) {
+                members = members.filter(member =>
+                    new Date(member.date_of_registration) >= new Date(contextState.filters.fromDate)
+                );
+            }
+
+            if (contextState.filters.toDate) {
+                members = members.filter(member =>
+                    new Date(member.date_of_registration) <= new Date(contextState.filters.toDate)
+                );
+            }
+
+            // Apply status filter
+            if (contextState.filters.status !== 'All') {
+                const status = contextState.filters.status === 'Active';
+                members = members.filter(member => member.status === status);
+            }
+
+            setFilteredMembers(members);
+        };
+
+        applyFilters();
+    }, [contextState.filters, contextState.membersData]);
 
     // Calculate the offset for the current page
     const offset = currentPage * membersPerPage;
 
     // Get the current page of members
-    const currentMembers = contextState.membersData.slice(offset, offset + membersPerPage);
+    const currentMembers = filteredMembers.slice(offset, offset + membersPerPage);
 
     const handlePageClick = (data) => {
         setCurrentPage(data.selected);
@@ -26,11 +66,11 @@ const AdminManageMembersTable = ({ AddClassName }) => {
     return (
         <div className="w-[90%] mx-auto">
             {/* desktop table */}
-            <div className={`border-[0.5px] ${AddClassName} xl:block w-full mx-auto hidden border-b-0 overflow-x-scroll border-gray-e5 rounded-[0.5rem]`}>
+            <div className={`border-[0.5px] ${AddClassName} md:block w-full mx-auto hidden border-b-0 overflow-x-scroll border-gray-e5 rounded-[0.5rem]`}>
                 <table className="w-full table-fixed min-w-[600px]">
                     <thead>
                         <tr className="bg-gray-fa border-b-[0.5px] border-gray-e5">
-                            <td className="text-[1.6rem] text-black-100 py-[2.8rem] pl-[5rem]">ID</td>
+                            <td className="text-[1.6rem] text-black-100 py-[2.8rem] pl-[2.5rem] xl:pl-[5rem]">ID</td>
                             <td className="text-[1.6rem] text-black-100 py-[2.8rem]">Name</td>
                             <td className="text-[1.6rem] text-black-100 py-[2.8rem]">Username</td>
                             <td className="text-[1.6rem] text-black-100 py-[2.8rem]">Phone</td>
@@ -38,13 +78,13 @@ const AdminManageMembersTable = ({ AddClassName }) => {
                             <td className="text-[1.6rem] text-black-100 py-[2.8rem]">Status</td>
                             <td className="text-[1.6rem] text-black-100 py-[2.8rem]">D.O.R</td>
                             <td className="text-[1.6rem] text-black-100 py-[2.8rem]">Plan</td>
-                            <td className="text-[1.6rem] text-black-100 py-[2.8rem] pr-[5rem] text-right">Action</td>
+                            <td className="text-[1.6rem] text-black-100 py-[2.8rem] pr-[2.5rem] xl:pr-[5rem] text-right">Action</td>
                         </tr>
                     </thead>
                     <tbody>
                         {currentMembers.map(({ id, name, username, phone, email, status, date_of_registration, plan }, index) => (
                             <tr className="border-b-[0.5px] border-gray-e5" key={index}>
-                                <td className="text-[1.6rem] text-black-100 py-[2.8rem] pl-[5rem] truncate">{id}</td>
+                                <td className="text-[1.6rem] text-black-100 py-[2.8rem] pl-[2.5rem] xl:pl-[5rem] truncate">{id}</td>
                                 <td className="text-[1.6rem] text-black-100 py-[2.8rem] truncate">{name}</td>
                                 <td className="text-[1.6rem] text-black-100 py-[2.8rem] truncate">{username}</td>
                                 <td className="text-[1.6rem] text-black-100 py-[2.8rem] truncate">{phone}</td>
@@ -64,7 +104,7 @@ const AdminManageMembersTable = ({ AddClassName }) => {
                                 </td>
                                 <td className="text-[1.6rem] text-black-100 py-[2.8rem] truncate">{date_of_registration}</td>
                                 <td className="text-[1.6rem] text-black-100 py-[2.8rem] truncate">{plan}</td>
-                                <td className="text-gray-c4 py-[2.8rem] pr-[5rem]">
+                                <td className="text-gray-c4 py-[2.8rem] pr-[2.5rem] xl:pr-[5rem]">
                                     <div className="flex items-center gap-[0.5px] justify-end">
                                         <IoMdEye onClick={() => {
                                             setContextState((prevValues) => ({
@@ -92,6 +132,10 @@ const AdminManageMembersTable = ({ AddClassName }) => {
                         ))}
                     </tbody>
                 </table>
+            </div>
+            {/* Mobile Table */}
+            <div className="block w-full table-auto md:hidden">
+                
             </div>
             {/* Pagination */}
             <ReactPaginate

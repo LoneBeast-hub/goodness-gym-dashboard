@@ -51,3 +51,27 @@
         font-size: 2.5rem !important;
     }
 }
+
+/* DateRangePickerStyles.css */
+.rdrCalendarWrapper {
+    max-width: 280px;
+}
+
+.rdrMonth {
+    width: 100% !important;
+}
+
+.custom-date-range-picker * {
+    font-size: 1.4rem; /* Change this value to your desired font size */
+}
+
+.custom-date-range-picker .rdrDayNumber span, 
+.custom-date-range-picker .rdrMonthAndYearPickers select, 
+.custom-date-range-picker .rdrWeekDays span, 
+.custom-date-range-picker .rdrDayNumber {
+    font-size: 1.4rem; /* Ensure date numbers, month/year pickers, week days, etc., have the desired font size */
+}
+
+.rdrDefinedRangesWrapper {
+    display: none;
+}

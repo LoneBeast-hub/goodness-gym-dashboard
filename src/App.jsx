@@ -26,8 +26,15 @@ function App() {
     showConfirmPostNotificationModal: false,
     successMessage: '',
     showNav: false,
+    showDateRangePicker: false,
     showSuccessModal: false,
     handleAnnouncementSubmit: null,
+    filters: {
+      search: '',
+      fromDate: '',
+      toDate: '',
+      status: 'All',
+    },
     toDoListData: [
       {
         id: 1,
@@ -72,9 +79,9 @@ function App() {
         name: 'John Doe',
         username: 'john_doe',
         phone: '0123456789',
-        email: 'example@gmail.com',
+        email: 'john_doe@gmail.com',
         status: true,
-        date_of_registration: 'Oct 6, 2023',
+        date_of_registration: '2023-10-06',
         plan: 'Classical - N22k per month'
       },
       {
@@ -82,9 +89,39 @@ function App() {
         name: 'Steve Doe',
         username: 'steve_doe',
         phone: '0987654321',
-        email: 'new.example@gmail.com',
+        email: 'steve_doe@gmail.com',
         status: false,
-        date_of_registration: 'Mar 6, 2024',
+        date_of_registration: '2024-03-06',
+        plan: 'Classical - N22k per month'
+      },
+      {
+        id: 3,
+        name: 'Nigga Black',
+        username: 'black_nigga',
+        phone: '0987654321',
+        email: 'black.nigga@gmail.com',
+        status: false,
+        date_of_registration: '2023-05-09',
+        plan: 'Classical - N22k per month'
+      },
+      {
+        id: 4,
+        name: 'Luffytaro',
+        username: 'luffy_kun',
+        phone: '0987654321',
+        email: 'luffy@gmail.com',
+        status: true,
+        date_of_registration: '2023-12-09',
+        plan: 'Classical - N22k per month'
+      },
+      {
+        id: 5,
+        name: 'Roronoa Zoro',
+        username: 'zorojuro',
+        phone: '0987654321',
+        email: 'santoryou@gmail.com',
+        status: true,
+        date_of_registration: '2024-6-09',
         plan: 'Classical - N22k per month'
       }
     ]

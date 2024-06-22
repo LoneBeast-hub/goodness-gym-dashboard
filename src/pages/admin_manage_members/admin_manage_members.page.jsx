@@ -4,6 +4,7 @@ import CustomButton from "../../components/custom_button/custom_button.component
 // react icons
 import {FaPlus} from 'react-icons/fa'
 import AdminManageMembersTable from "../../components/admin_manage_members_table/admin_manage_members_table.component";
+import ManageMembersFilters from "../../components/manage_members_filters/manage_members_filters.component";
 
 const AdminManageMembersPage = () => {
     const adminDashboardRoute = '/admin_dashboard';
@@ -20,29 +21,7 @@ const AdminManageMembersPage = () => {
                     {/* Manage members filter and add */}
                     <div className="flex gap-[7px] max-h-fit items-center">
                         {/* filters */}
-                        <div className="max-h-fit flex gap-[7px] md:gap-[13px]">
-                            {/* <button
-                                className={`md:px-[2rem] max-h-fit border gap-[3px] md:gap-[5px] flex items-center px-[0.7rem] py-[0.8rem] md:py-[1.5rem] text-black-100 bg-gray-fa ${selectedFilters.includes('just started') ? 'border-red-100' : 'border-gray-fa'}`}
-                                onClick={() => handleFilterClick('just started')}
-                            >
-                                <span className="w-[6px] h-[6px] md:w-[11px] md:h-[11px] rounded-full bg-red-100"></span>
-                                <span className="text-[1.2rem] md:text-[2rem]">Just Started</span>
-                            </button>
-                            <button
-                                className={`md:px-[2rem] max-h-fit border gap-[3px] md:gap-[5px] flex items-center px-[0.7rem] py-[0.8rem] md:py-[1.5rem] text-black-100 bg-gray-fa ${selectedFilters.includes('pending') ? 'border-pending' : 'border-gray-fa'}`}
-                                onClick={() => handleFilterClick('pending')}
-                            >
-                                <span className="w-[6px] h-[6px] md:w-[11px] md:h-[11px] rounded-full bg-pending"></span>
-                                <span className="text-[1.2rem] md:text-[2rem]">Pending</span>
-                            </button>
-                            <button
-                                className={`md:px-[2rem] max-h-fit border gap-[3px] md:gap-[5px] flex items-center px-[0.7rem] py-[0.8rem] md:py-[1.5rem] text-black-100 bg-gray-fa ${selectedFilters.includes('completed') ? 'border-green-100' : 'border-gray-fa'}`}
-                                onClick={() => handleFilterClick('completed')}
-                            >
-                                <span className="w-[6px] h-[6px] md:w-[11px] md:h-[11px] rounded-full bg-green-100"></span>
-                                <span className="text-[1.2rem] md:text-[2rem]">Completed</span>
-                            </button> */}
-                        </div>
+                        <ManageMembersFilters />
                         {/* add to list */}
                         <CustomButton clickFunction={() => {
                             setContextState((prevValues) => ({
