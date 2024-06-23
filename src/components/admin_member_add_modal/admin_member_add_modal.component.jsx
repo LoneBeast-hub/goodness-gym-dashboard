@@ -32,12 +32,12 @@ const AdminMemberAddModal = () => {
     }
 
     return(
-        <div className="w-[100vw] h-[100vh] flex items-center justify-center bg-[rgba(0,0,0,0.6)] fixed z-10 top-0">
-            <div className="w-[90%] items-center relative flex flex-col md:w-[55%] md:max-w-[1096px] box-border text-center pt-[2.5rem] md:pt-[5rem] pb-[3.5rem] md:pb-[4.1rem] px-[3.5%] rounded-[5px] bg-white">
+        <div className="w-[100%] min-h-[100vh] py-[5rem] flex items-start justify-center bg-[rgba(0,0,0,0.6)] absolute z-10 top-0 left-0 overflow-y-auto">
+            <div className="w-[90%] relative flex flex-col items-center md:w-[55%] md:max-w-[1096px] box-border text-center pt-[2.5rem] md:pt-[5rem] pb-[3.5rem] md:pb-[4.1rem] px-[3.5%] rounded-[5px] bg-white">
                 {/* title */}
                 <p className="text-[1.8rem] self-start md:text-[3.2rem] text-primary-100 font-bold mb-[1.8rem]">Add Members</p>
                 {/* form */}
-                <form onSubmit={handleAddMemberSubmit} className="mt-[14px] flex flex-col w-full md:mt[32px]" action="#">
+                <form onSubmit={handleAddMemberSubmit} className="mt-[14px] flex flex-col w-full md:mt-[32px]" action="#">
                     {/* flex */}
                     <div className="flex flex-col gap-[2rem] md:flex-row">
                         {/* Full Name input */}
@@ -96,6 +96,7 @@ const AdminMemberAddModal = () => {
                 </div>
             </div>
         </div>
+
     )
 }
 

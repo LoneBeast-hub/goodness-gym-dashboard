@@ -8,7 +8,7 @@ import CustomButton from "../custom_button/custom_button.component";
 const MemberDetailsModal = ({showMemberDetailsModal: {id, name, username, phone, email, status, date_of_registration, plan}}) => {
     const {contextState, setContextState} = useContext(MyContext);
     return(
-        <div className="w-[100vw] overflow-y-scroll h-fit min-h-[100vh] flex items-center justify-center bg-[rgba(0,0,0,0.6)] fixed z-10 top-0">
+        <div className="w-[100%] min-h-[100vh] py-[5rem] flex items-start justify-center bg-[rgba(0,0,0,0.6)] absolute z-10 top-0 left-0 overflow-y-auto">
             <div className="w-[90%] items-center relative flex flex-col md:w-[60%] md:max-w-[923px] box-border text-center pt-[2.5rem] md:pt-[5rem] pb-[3.5rem] md:pb-[4.1rem] px-[2.5%] rounded-[5px] bg-white">
                 {/* title */}
                 <p className="text-[1.8rem] md:text-[3.2rem] text-primary-100 font-bold mb-[1.8rem]">View Members</p>
