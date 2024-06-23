@@ -27,7 +27,7 @@ import AdminEditProfilePage from "../../pages/admin_edit_profile/admin_edit_prof
 const Layout = () => {
     const membersDashboardRoute = '/members_dashboard';
     const adminDashboardRoute = '/admin_dashboard';
-    const {contextState} = useContext(MyContext);
+    const {contextState, setContextState} = useContext(MyContext);
     const location = useLocation();
     return(
         <div className="flex w-full">
@@ -58,7 +58,15 @@ const Layout = () => {
             {/* sidebar frame */}
             <div className="min-w-[263px] min-h-[100vh] hidden lg:flex"></div>
             {/* pages container */}
-            <div className="w-full pb-[2.4rem]">
+            <div onClick={() => {
+                contextState.showNav?
+                    setContextState((prevValues) => ({
+                        ...prevValues,
+                        showNav: false
+                    }))
+                :
+                    ''
+            }} className="w-full pb-[2.4rem]">
                 {/* Routes */}
                 <Routes>
                     <Route path={membersDashboardRoute} exact element={<MembersDashboardPage />} />
