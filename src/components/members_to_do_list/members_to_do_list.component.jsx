@@ -17,10 +17,11 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
     }
 
     // handle edit todo
-    const handleTodoEdit = () => {
+    const handleTodoEdit = (toDo) => {
         setContextState((prevValues) => ({
             ...prevValues,
-            showTodoEditModal: true
+            showTodoEditModal: true,
+            currentTodoData: toDo
         }))
     }
     
@@ -57,7 +58,7 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
                                                         <div className="flex items-center gap-[1rem]">
                                                             <div className="w-[147px] rounded-full overflow-hidden h-[3px] bg-gray-e5">
                                                                 {/* progress bar*/}
-                                                                <div style={{width: `${toDo.progress}%`}} className={`h-full ${toDo.progress >= 11 && toDo.progress <= 99 ? 'bg-pending' : ''} ${toDo.progress <= 10? 'bg-red-100': ''} ${toDo.progress === 100? 'bg-green-100': ''}`}></div>
+                                                                <div style={{width: `${toDo.progress}%`}} className={`h-full ${toDo.progress >= 11 && toDo.progress <= 99 ? 'bg-pending' : ''} ${toDo.progress <= 10? 'bg-red-100': ''} ${toDo.progress == 100? 'bg-green-100': ''}`}></div>
                                                             </div>
                                                             <p className="text-[2rem]">{toDo.progress}%</p>
                                                         </div>
@@ -67,7 +68,9 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
                                                     </td>
                                                     <td className="text-black-100 py-[2.8rem] pr-[5rem]">
                                                         <div className="flex items-center gap-[1rem] justify-end">
-                                                            <FiEdit onClick={handleTodoEdit} className="text-[2.2rem] cursor-pointer" />
+                                                            <FiEdit onClick={() => {
+                                                                return handleTodoEdit(toDo)
+                                                            }} className="text-[2.2rem] cursor-pointer" />
                                                             <HiOutlineTrash onClick={handleDeleteTodo} className="text-[2.3rem] text-red-100 cursor-pointer" />
                                                         </div>
                                                     </td>
@@ -84,7 +87,7 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
                                                         <div className="flex items-center gap-[1rem]">
                                                             <div className="w-[147px] rounded-full overflow-hidden h-[3px] bg-gray-e5">
                                                                 {/* progress bar*/}
-                                                                <div style={{width: `${toDo.progress}%`}} className={`h-full ${toDo.progress >= 11 && toDo.progress <= 99 ? 'bg-pending' : ''} ${toDo.progress <= 10? 'bg-red-100': ''} ${toDo.progress === 100? 'bg-green-100': ''}`}></div>
+                                                                <div style={{width: `${toDo.progress}%`}} className={`h-full ${toDo.progress >= 11 && toDo.progress <= 99 ? 'bg-pending' : ''} ${toDo.progress <= 10? 'bg-red-100': ''} ${toDo.progress == 100? 'bg-green-100': ''}`}></div>
                                                             </div>
                                                             <p className="text-[2rem]">{toDo.progress}%</p>
                                                         </div>
@@ -94,7 +97,9 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
                                                     </td>
                                                     <td className="text-black-100 py-[2.8rem] pr-[5rem]">
                                                         <div className="flex items-center gap-[1rem] justify-end">
-                                                            <FiEdit onClick={handleTodoEdit} className="text-[2.2rem] cursor-pointer" />
+                                                            <FiEdit onClick={() => {
+                                                                return handleTodoEdit(toDo)
+                                                            }} className="text-[2.2rem] cursor-pointer" />
                                                             <HiOutlineTrash onClick={handleDeleteTodo} className="text-[2.3rem] text-red-100 cursor-pointer" />
                                                         </div>
                                                     </td>
@@ -119,7 +124,7 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
                                                     <div className="flex items-center gap-[0.7rem]">
                                                         <div className="w-[66px] rounded-full overflow-hidden h-[3px] bg-gray-e5">
                                                             {/* progress bar*/}
-                                                            <div style={{width: `${toDo.progress}%`}} className={`h-full ${toDo.progress >= 11 && toDo.progress <= 99 ? 'bg-pending' : ''} ${toDo.progress <= 10? 'bg-red-100': ''} ${toDo.progress === 100? 'bg-green-100': ''}`}></div>
+                                                            <div style={{width: `${toDo.progress}%`}} className={`h-full ${toDo.progress >= 11 && toDo.progress <= 99 ? 'bg-pending' : ''} ${toDo.progress <= 10? 'bg-red-100': ''} ${toDo.progress == 100? 'bg-green-100': ''}`}></div>
                                                         </div>
                                                         <p className="text-black-100 text-[1.2rem]">{toDo.progress}%</p>
                                                     </div>
@@ -131,7 +136,9 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
                                                     </div>
                                                     <div className="text-black-100">
                                                         <div className="flex items-center gap-[0.05rem] justify-end">
-                                                            <FiEdit onClick={handleTodoEdit} className="text-[1.2rem] cursor-pointer" />
+                                                            <FiEdit onClick={() => {
+                                                                return handleTodoEdit(toDo)
+                                                            }} className="text-[1.2rem] cursor-pointer" />
                                                             <HiOutlineTrash onClick={handleDeleteTodo} className="text-[1.3rem] text-red-100 cursor-pointer" />
                                                         </div>
                                                     </div>
@@ -150,7 +157,7 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
                                                     <div className="flex items-center gap-[0.7rem]">
                                                         <div className="w-[66px] rounded-full overflow-hidden h-[3px] bg-gray-e5">
                                                             {/* progress bar*/}
-                                                            <div style={{width: `${toDo.progress}%`}} className={`h-full ${toDo.progress >= 11 && toDo.progress <= 99 ? 'bg-pending' : ''} ${toDo.progress <= 10? 'bg-red-100': ''} ${toDo.progress === 100? 'bg-green-100': ''}`}></div>
+                                                            <div style={{width: `${toDo.progress}%`}} className={`h-full ${toDo.progress >= 11 && toDo.progress <= 99 ? 'bg-pending' : ''} ${toDo.progress <= 10? 'bg-red-100': ''} ${toDo.progress == 100? 'bg-green-100': ''}`}></div>
                                                         </div>
                                                         <p className="text-black-100 text-[1.2rem]">{toDo.progress}%</p>
                                                     </div>
@@ -162,7 +169,9 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
                                                     </div>
                                                     <div className="text-black-100">
                                                         <div className="flex items-center gap-[0.05rem] justify-end">
-                                                            <FiEdit onClick={handleTodoEdit} className="text-[1.2rem] cursor-pointer" />
+                                                            <FiEdit onClick={() => {
+                                                                return handleTodoEdit(toDo)
+                                                            }} className="text-[1.2rem] cursor-pointer" />
                                                             <HiOutlineTrash onClick={handleDeleteTodo} className="text-[1.3rem] text-red-100 cursor-pointer" />
                                                         </div>
                                                     </div>

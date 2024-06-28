@@ -32,6 +32,7 @@ function App() {
     handleAnnouncementSubmit: null,
     showActionsModal: null,
     showMemberAddModal: false,
+    currentTodoData: null,
     filters: {
       search: '',
       fromDate: '',
@@ -43,37 +44,43 @@ function App() {
         id: 1,
         description: 'Yoga',
         progress: 50,
-        due_date: '04/03/23 - 10pm'
+        due_date: '2022-12-24',
+        reminder: 'A day before'
       },
       {
         id: 2,
         description: 'Yoga',
         progress: 10,
-        due_date: '04/03/23 - 10pm'
+        due_date: '2022-12-24',
+        reminder: 'A day before'
       },
       {
         id: 3,
         description: 'Yoga',
         progress: 100,
-        due_date: '04/03/23 - 10pm'
+        due_date: '2022-12-24',
+        reminder: 'A day before'
       },
       {
         id: 4,
         description: 'Yoga',
         progress: 10,
-        due_date: '04/03/23 - 10pm'
+        due_date: '2022-12-24',
+        reminder: 'A day before'
       },
       {
         id: 5,
         description: 'Yoga',
         progress: 50,
-        due_date: '04/03/23 - 10pm'
+        due_date: '2022-12-24',
+        reminder: 'A day before'
       },
       {
         id: 6,
         description: 'Yoga',
         progress: 100,
-        due_date: '04/03/23 - 10pm'
+        due_date: '2022-12-24',
+        reminder: 'A day before'
       }
     ],
     membersData: [
