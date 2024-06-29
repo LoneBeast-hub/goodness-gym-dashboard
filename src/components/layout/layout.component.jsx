@@ -1,5 +1,5 @@
 // react router dom
-import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+import { Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
 // pages
 import MembersDashboardPage from "../../pages/members_dashboard/members_dashboard.page";
 import MembersToDoPage from "../../pages/members_to_do/members_to_do.page";
@@ -53,7 +53,7 @@ const Layout = () => {
                     }
                 </div>
                 {/* logout */}
-                <p className="absolute bottom-[7.2rem] left-[3.6rem] font-medium gap-[1rem] flex text-black-2"><AiOutlineLogout className="text-[2rem] transform -rotate-90" /> <span className="text-[2rem]">Logout</span></p>
+                <Link to='/' className="absolute bottom-[7.2rem] left-[3.6rem] font-medium gap-[1rem] flex text-black-2"><AiOutlineLogout className="text-[2rem] transform -rotate-90" /> <span className="text-[2rem]">Logout</span></Link>
             </div>
             {/* sidebar frame */}
             <div className="min-w-[263px] min-h-[100vh] hidden lg:flex"></div>
