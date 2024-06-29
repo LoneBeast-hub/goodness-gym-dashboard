@@ -127,7 +127,8 @@ const AdminManageMembersTable = ({ AddClassName }) => {
                                             <HiOutlineTrash onClick={() => {
                                                 setContextState((prevValues) => ({
                                                     ...prevValues,
-                                                    showDeleteMemberModal: true
+                                                    showDeleteMemberModal: true,
+                                                    memberIdToDelete: id
                                                 }))
                                             }} className="text-[1.9rem] text-red-100 cursor-pointer" />
                                         </div>
@@ -199,7 +200,8 @@ const AdminManageMembersTable = ({ AddClassName }) => {
                                                         <HiOutlineTrash onClick={() => {
                                                             setContextState((prevValues) => ({
                                                                 ...prevValues,
-                                                                showDeleteMemberModal: true
+                                                                showDeleteMemberModal: true,
+                                                                memberIdToDelete: id
                                                             }))
                                                         }} className="text-[1.9rem] text-red-100 cursor-pointer" />
                                                     </div>

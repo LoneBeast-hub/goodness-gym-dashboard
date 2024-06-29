@@ -45,7 +45,7 @@ const TodoEditModal = () => {
         // then, set success message
         setContextState((prevValues) => ({
             ...prevValues,
-            successMessage: 'Successfully Updated!'
+            successMessage: 'Item Successfully Updated!'
         }))
 
         // then, show success message

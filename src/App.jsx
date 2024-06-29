@@ -34,6 +34,7 @@ function App() {
     showMemberAddModal: false,
     currentTodoData: null,
     todoIdToDelete: '',
+    memberIdToDelete: '',
     filters: {
       search: '',
       fromDate: '',
@@ -107,10 +108,10 @@ function App() {
       },
       {
         id: 3,
-        name: 'Nigga Black',
-        username: 'black_nigga',
+        name: 'Albert',
+        username: 'king_albert',
         phone: '0987654321',
-        email: 'black.nigga@gmail.com',
+        email: 'king.albert@gmail.com',
         status: false,
         date_of_registration: '2023-05-09',
         plan: 'Classical - N22k per month'

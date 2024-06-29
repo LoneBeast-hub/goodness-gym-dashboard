@@ -23,7 +23,18 @@ const DeleteMemberModal = () => {
                             showDeleteMemberModal: false
                         }))
                     }} AddClassName='w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' grayColored><span className="text-[1.6rem] md:text-[2rem]">No</span></CustomButton>
-                    <CustomButton setType='submit' AddClassName='w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' redColored><span className="text-[1.6rem] md:text-[2rem]">Send</span></CustomButton>
+                    <CustomButton clickFunction={() => {
+                        setContextState((prevValues) => {
+                            const updatedMembersData = prevValues.membersData.filter((todo) => todo.id !== contextState.memberIdToDelete);
+                            return {
+                                ...prevValues,
+                                membersData: updatedMembersData,
+                                successMessage: 'Member Successfully Deleted!',
+                                showSuccessModal: true,
+                                showDeleteMemberModal: false,
+                            };
+                        });
+                    }} AddClassName='w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' redColored><span className="text-[1.6rem] md:text-[2rem]">Send</span></CustomButton>
                 </div>
                 {/* cancel */}
                 <div onClick={() => {

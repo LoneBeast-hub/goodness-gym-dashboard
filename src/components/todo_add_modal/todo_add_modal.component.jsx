@@ -48,7 +48,7 @@ const TodoAddModal = () => {
         // then, set success message
         setContextState((prevValues) => ({
             ...prevValues,
-            successMessage: 'Successfully Added!'
+            successMessage: 'Item Successfully Added!'
         }))
 
         // then, show success message
@@ -86,8 +86,8 @@ const TodoAddModal = () => {
                         <select onChange={(e) => {
                             setReminder(e.target.value)
                         }} required value={reminder} className="border border-gray-e5 w-full text-[1.4rem] py-[2rem] rounded-[5px] px-[1.5rem] md:py-[2.5rem] md:px-[2rem] md:text-[2rem] text-black-100" type="date" name="reminder" id="reminder">
-                            <option value="a_day_before">A day before</option>
-                            <option value="two_days_before">Two days before</option>
+                            <option value="A day before">A day before</option>
+                            <option value="Two days before">Two days before</option>
                         </select>
                     </div>
                     {/* buttons */}
