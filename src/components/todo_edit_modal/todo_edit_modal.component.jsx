@@ -54,8 +54,6 @@ const TodoEditModal = () => {
             showSuccessModal: true,
             showTodoEditModal: false
         }))
-
-        console.log(contextState.toDoListData)
     };
 
     return(

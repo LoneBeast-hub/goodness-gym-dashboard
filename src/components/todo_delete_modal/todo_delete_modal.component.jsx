@@ -24,7 +24,18 @@ const TodoDeleteModal = () => {
                             showTodoDeleteModal: false
                         }))
                     }} AddClassName='w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' grayColored><span className="text-[1.6rem] md:text-[2rem]">No</span></CustomButton>
-                    <CustomButton AddClassName='w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' redColored><span className="text-[1.6rem] md:text-[2rem]">Delete</span></CustomButton>
+                    <CustomButton clickFunction={() => {
+                        setContextState((prevValues) => {
+                            const updatedToDoList = prevValues.toDoListData.filter((todo) => todo.id !== contextState.todoIdToDelete);
+                            return {
+                                ...prevValues,
+                                toDoListData: updatedToDoList,
+                                successMessage: 'Item Successfully Deleted!',
+                                showSuccessModal: true,
+                                showTodoDeleteModal: false,
+                            };
+                        });
+                    }} AddClassName='w-[50%] px-[1rem] rounded-[0.5rem] py-[1.5rem] md:py-[2.5rem]' redColored><span className="text-[1.6rem] md:text-[2rem]">Delete</span></CustomButton>
                 </div>
                 {/* cancel */}
                 <div onClick={() => {

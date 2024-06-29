@@ -33,6 +33,7 @@ function App() {
     showActionsModal: null,
     showMemberAddModal: false,
     currentTodoData: null,
+    todoIdToDelete: '',
     filters: {
       search: '',
       fromDate: '',

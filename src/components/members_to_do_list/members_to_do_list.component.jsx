@@ -9,10 +9,11 @@ import EmptyTodoMessage from "../empty_todo_message/empty_todo_message.component
 const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
     const {contextState, setContextState} = useContext(MyContext);
     // handle delete todo
-    const handleDeleteTodo = () => {
+    const handleDeleteTodo = (todoIdToDelete) => {
         setContextState((prevValues) => ({
             ...prevValues,
-            showTodoDeleteModal: true
+            showTodoDeleteModal: true,
+            todoIdToDelete: todoIdToDelete
         }))
     }
 
@@ -71,7 +72,7 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
                                                             <FiEdit onClick={() => {
                                                                 return handleTodoEdit(toDo)
                                                             }} className="text-[2.2rem] cursor-pointer" />
-                                                            <HiOutlineTrash onClick={handleDeleteTodo} className="text-[2.3rem] text-red-100 cursor-pointer" />
+                                                            <HiOutlineTrash onClick={() => handleDeleteTodo(toDo.id)} className="text-[2.3rem] text-red-100 cursor-pointer" />
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -100,7 +101,7 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
                                                             <FiEdit onClick={() => {
                                                                 return handleTodoEdit(toDo)
                                                             }} className="text-[2.2rem] cursor-pointer" />
-                                                            <HiOutlineTrash onClick={handleDeleteTodo} className="text-[2.3rem] text-red-100 cursor-pointer" />
+                                                            <HiOutlineTrash onClick={() => handleDeleteTodo(toDo.id)} className="text-[2.3rem] text-red-100 cursor-pointer" />
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -139,7 +140,7 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
                                                             <FiEdit onClick={() => {
                                                                 return handleTodoEdit(toDo)
                                                             }} className="text-[1.2rem] cursor-pointer" />
-                                                            <HiOutlineTrash onClick={handleDeleteTodo} className="text-[1.3rem] text-red-100 cursor-pointer" />
+                                                            <HiOutlineTrash onClick={() => handleDeleteTodo(toDo.id)} className="text-[1.3rem] text-red-100 cursor-pointer" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -172,7 +173,7 @@ const MembersToDoList = ({showCount, filteredList, AddClassName}) => {
                                                             <FiEdit onClick={() => {
                                                                 return handleTodoEdit(toDo)
                                                             }} className="text-[1.2rem] cursor-pointer" />
-                                                            <HiOutlineTrash onClick={handleDeleteTodo} className="text-[1.3rem] text-red-100 cursor-pointer" />
+                                                            <HiOutlineTrash onClick={() => handleDeleteTodo(toDo.id)} className="text-[1.3rem] text-red-100 cursor-pointer" />
                                                         </div>
                                                     </div>
                                                 </div>
